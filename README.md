@@ -28,9 +28,9 @@
   1. [jQuery](#jquery)
   1. [Compatibilité ES5](#es5)
   1. [Test](#testing)
-  1. [Performance](#performance)
-  1. [Resource](#resources)
-  1. [Dans la nature](#in-the-wild)
+  1. [Performances](#performance)
+  1. [Sources](#resources)
+  1. [Dans la Nature](#in-the-wild)
   1. [Traductions](#translation)
   1. [Le Guide au Guide de Style Javascript](#guide-guide)
   1. [Contributeurs](#contributors)
@@ -174,7 +174,7 @@
 
 ## <a name='strings'>Strings</a>
 
-  - Utilisez les apostrophes (single quote) `''` pour les stings
+  - Utilisez les apostrophes (single quote) `''` pour les strings
 
     ```javascript
     // pas bien
@@ -1238,9 +1238,9 @@
     **[[⬆]](#TOC)**
 
 
-## <a name='events'>Évênements</a>
+## <a name='events'>Évènements</a>
 
-  - Lorsque vous attachez des données utiles à vos évênements (qu'il s'agisse d'évênements du DOM ou quelque chose de plus propriétaire comme les évênements de Backbone), transmettez plutôt un object "hash" au lieu de données bruttes. Cela permet au contributeurs suivants d'ajouter plus de données à l'évênements sans rechercher et modifier tous les gestionnaires pour l'évênement. Par exemple :
+  - Lorsque vous attachez des données utiles à vos évènements (qu'il s'agisse d'évènements du DOM ou quelque chose de plus propriétaire comme les évènements de Backbone), transmettez plutôt un object "hash" au lieu de données bruttes. Cela permet au contributeurs suivants d'ajouter plus de données à l'évènements sans rechercher et modifier tous les gestionnaires pour l'évènement. Par exemple :
 
     ```js
     // pas bien
@@ -1382,7 +1382,7 @@
     **[[⬆]](#TOC)**
 
 
-## <a name='performance'>Performance</a>
+## <a name='performance'>Performances</a>
 
   - [On Layout & Web Performance](http://kellegous.com/j/2013/01/26/layout-performance/)
   - [String vs Array Concat](http://jsperf.com/string-vs-array-concat/2)
@@ -1396,7 +1396,7 @@
   **[[⬆]](#TOC)**
 
 
-## <a name='resources'>Resources</a>
+## <a name='resources'>Sources</a>
 
 
 **Lisez ceci**
