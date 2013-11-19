@@ -1,44 +1,44 @@
-# Airbnb JavaScript Style Guide() {
+# Airbnb JavaScript Guide de Style() {
 
-*A mostly reasonable approach to JavaScript*
+*Une approche plus ou moins raisonable à Javascript*
 
 
-## <a name='TOC'>Table of Contents</a>
+## <a name='TOC'>Table des Matières</a>
 
   1. [Types](#types)
-  1. [Objects](#objects)
-  1. [Arrays](#arrays)
+  1. [Objets](#objects)
+  1. [Tableaux](#arrays)
   1. [Strings](#strings)
-  1. [Functions](#functions)
-  1. [Properties](#properties)
+  1. [Fonctions](#functions)
+  1. [Propriétés](#properties)
   1. [Variables](#variables)
-  1. [Hoisting](#hoisting)
-  1. [Conditional Expressions & Equality](#conditionals)
-  1. [Blocks](#blocks)
-  1. [Comments](#comments)
-  1. [Whitespace](#whitespace)
-  1. [Commas](#commas)
-  1. [Semicolons](#semicolons)
-  1. [Type Casting & Coercion](#type-coercion)
-  1. [Naming Conventions](#naming-conventions)
-  1. [Accessors](#accessors)
-  1. [Constructors](#constructors)
-  1. [Events](#events)
+  1. [Hissage](#hoisting)
+  1. [Expressions conditionnelles & Égalité](#conditionals)
+  1. [Blocs](#blocks)
+  1. [Commentaires](#comments)
+  1. [Espaces](#whitespace)
+  1. [Virgules](#commas)
+  1. [Point-virgules](#semicolons)
+  1. [Conversion des types & Contraintes](#type-coercion)
+  1. [Conventions de nommage](#nantions)
+  1. [Accesseurs](#accessors)
+  1. [Constructeurs](#constructors)
+  1. [Évènements](#events)
   1. [Modules](#modules)
   1. [jQuery](#jquery)
-  1. [ES5 Compatibility](#es5)
-  1. [Testing](#testing)
+  1. [Compatibilité ES5](#es5)
+  1. [Test](#testing)
   1. [Performance](#performance)
-  1. [Resources](#resources)
-  1. [In the Wild](#in-the-wild)
-  1. [Translation](#translation)
-  1. [The JavaScript Style Guide Guide](#guide-guide)
-  1. [Contributors](#contributors)
+  1. [Resource](#resources)
+  1. [Dans la nature](#in-the-wild)
+  1. [Traductions](#translation)
+  1. [Le Guide au Guide de Style Javascript](#guide-guide)
+  1. [Contributeurs](#contributors)
   1. [License](#license)
 
 ## <a name='types'>Types</a>
 
-  - **Primitives**: When you access a primitive type you work directly on its value
+  - **Primitifs**: Quand vous accéÉvitez les noms d'une seule lettre. Soyez descriptifs dans votre déclaration.
 
     + `string`
     + `number`
@@ -54,7 +54,7 @@
 
     console.log(foo, bar); // => 1, 9
     ```
-  - **Complex**: When you access a complex type you work on a reference to its value
+  - **Complexe**: Quand vous accédez à un type complexe, travaillez avec une référence de sa valeur
 
     + `object`
     + `array`
@@ -71,96 +71,96 @@
 
     **[[⬆]](#TOC)**
 
-## <a name='objects'>Objects</a>
+## <a name='objects'>Objets</a>
 
-  - Use the literal syntax for object creation.
+  - Utilisez la syntaxe littérale pour la création d'un objet
 
     ```javascript
-    // bad
-    var item = new Object();
+    // pas bien
+    var objet = new Object();
 
-    // good
-    var item = {};
+    // bien
+    var objet = {};
     ```
 
-  - Don't use [reserved words](http://es5.github.io/#x7.6.1) as keys. It won't work in IE8. [More info](https://github.com/airbnb/javascript/issues/61)
+  - N'utilisez pas les [mots réservés](http://es5.github.io/#x7.6.1) comme clés. Cela ne marchera pas sur IE8. [Plus d'informations](https://github.com/airbnb/javascript/issues/61)
 
     ```javascript
-    // bad
+    // pas bien
     var superman = {
       default: { clark: 'kent' },
       private: true
     };
 
-    // good
+    // bien
     var superman = {
       defaults: { clark: 'kent' },
       hidden: true
     };
     ```
 
-  - Use readable synonyms in place of reserved words.
+  - Utilisez des synonymes lisibles à la place des mots réservés.
 
     ```javascript
-    // bad
+    // pas bien
     var superman = {
       class: 'alien'
     };
 
-    // bad
+    // pas bien
     var superman = {
       klass: 'alien'
     };
 
-    // good
+    // bien
     var superman = {
       type: 'alien'
     };
     ```
     **[[⬆]](#TOC)**
 
-## <a name='arrays'>Arrays</a>
+## <a name='arrays'>Tableaux</a>
 
-  - Use the literal syntax for array creation
+  - Utilisez la syntaxe littérale pour la création d'un objet
 
     ```javascript
-    // bad
-    var items = new Array();
+    // pas bien
+    var objets = new Array();
 
-    // good
-    var items = [];
+    // bien
+    var objets = [];
     ```
 
-  - If you don't know array length use Array#push.
+  - Si vous ne connaissez pas la taille du tableau, utilisez Array#push.
 
     ```javascript
-    var someStack = [];
+    var unTableau = [];
 
 
-    // bad
-    someStack[someStack.length] = 'abracadabra';
+    // pas bien
+    unTableau[unTableau.length] = 'abracadabra';
 
-    // good
-    someStack.push('abracadabra');
+    // bien
+    unTableau.push('abracadabra');
     ```
 
-  - When you need to copy an array use Array#slice. [jsPerf](http://jsperf.com/converting-arguments-to-an-array/7)
+  - Quand vous devez copier un tableau, utilisez Array#slice. [jsPerf](http://jsperf.com/converting-arguments-to-an-array/7)
 
     ```javascript
-    var len = items.length,
-        itemsCopy = [],
+    var len = objets.length,
+        objetsCopie = [],
         i;
 
-    // bad
+    // pas bien
     for (i = 0; i < len; i++) {
-      itemsCopy[i] = items[i];
+      objetsCopie[i] = objets[i];
     }
 
-    // good
-    itemsCopy = items.slice();
+    // bien
+    objetsCopie = objets.slice();
     ```
 
-  - To convert an array-like object to an array, use Array#slice.
+  - Pour convertir un objet quasi-tableau en un tableau, utilisez Array#slice.
 
     ```javascript
     function trigger() {
@@ -174,30 +174,30 @@
 
 ## <a name='strings'>Strings</a>
 
-  - Use single quotes `''` for strings
+  - Utilisez les apostrophes (single quote) `''` pour les stings
 
     ```javascript
-    // bad
-    var name = "Bob Parr";
+    // pas bien
+    var nom = "Bob Parr";
 
-    // good
-    var name = 'Bob Parr';
+    // bien
+    var nom = 'Bob Parr';
 
-    // bad
-    var fullName = "Bob " + this.lastName;
+    // pas bien
+    var nomComplet = "Bob " + this.nomDeFamille;
 
-    // good
-    var fullName = 'Bob ' + this.lastName;
+    // bien
+    var nomComplet = 'Bob ' + this.nomDeFamille;
     ```
 
-  - Strings longer than 80 characters should be written across multiple lines using string concatenation.
-  - Note: If overused, long strings with concatenation could impact performance. [jsPerf](http://jsperf.com/ya-string-concat) & [Discussion](https://github.com/airbnb/javascript/issues/40)
+  - Les strings faisant plus de 80 caractères devraient être écrites sur plusieurs lignes, en utilisant la concaténation des chaînes de caractères.
+  - Note : Si trop utilisé, les strings longues concaténées peuvent influencer sur les performances. [jsPerf](http://jsperf.com/ya-string-concat) & [Discussion](https://github.com/airbnb/javascript/issues/40)
 
     ```javascript
-    // bad
+    // pas bien
     var errorMessage = 'This is a super long error that was thrown because of Batman. When you stop to think about how Batman had anything to do with this, you would get nowhere fast.';
 
-    // bad
+    // pas bien
     var errorMessage = 'This is a super long error that \
     was thrown because of Batman. \
     When you stop to think about \
@@ -206,7 +206,7 @@
     fast.';
 
 
-    // good
+    // bien
     var errorMessage = 'This is a super long error that ' +
       'was thrown because of Batman.' +
       'When you stop to think about ' +
@@ -215,12 +215,12 @@
       'fast.';
     ```
 
-  - When programatically building up a string, use Array#join instead of string concatenation. Mostly for IE: [jsPerf](http://jsperf.com/string-vs-array-concat/2).
+  - Quand vous contruisez programmatiquement une string, utilisez Array#join à la place de la concaténation de strings. Principalement pour IE : [jsPerf](http://jsperf.com/string-vs-array-concat/2).
 
     ```javascript
-    var items,
+    var objets,
         messages,
-        length,
+        longueur,
         i;
 
     messages = [{
@@ -234,67 +234,67 @@
         message: 'This one did not work.'
     }];
 
-    length = messages.length;
+    longueur = messages.length;
 
-    // bad
+    // pas bien
     function inbox(messages) {
-      items = '<ul>';
+      objets = '<ul>';
 
-      for (i = 0; i < length; i++) {
-        items += '<li>' + messages[i].message + '</li>';
+      for (i = 0; i < longueur; i++) {
+        objets += '<li>' + messages[i].message + '</li>';
       }
 
-      return items + '</ul>';
+      return objets + '</ul>';
     }
 
-    // good
+    // bien
     function inbox(messages) {
-      items = [];
+      objets = [];
 
-      for (i = 0; i < length; i++) {
-        items[i] = messages[i].message;
+      for (i = 0; i < longueur; i++) {
+        objets[i] = messages[i].message;
       }
 
-      return '<ul><li>' + items.join('</li><li>') + '</li></ul>';
+      return '<ul><li>' + objets.join('</li><li>') + '</li></ul>';
     }
     ```
 
     **[[⬆]](#TOC)**
 
 
-## <a name='functions'>Functions</a>
+## <a name='functions'>Fonctions</a>
 
-  - Function expressions:
+  - Expressions de fonction :
 
     ```javascript
-    // anonymous function expression
+    // expression de fonction anonyme
     var anonymous = function() {
       return true;
     };
 
-    // named function expression
+    // expression de fonction nommée
     var named = function named() {
       return true;
     };
 
-    // immediately-invoked function expression (IIFE)
+    // expression de fonction immédiatement appelée (IIFE)
     (function() {
       console.log('Welcome to the Internet. Please follow me.');
     })();
     ```
 
-  - Never declare a function in a non-function block (if, while, etc). Assign the function to a variable instead. Browsers will allow you to do it, but they all interpret it differently, which is bad news bears.
-  - **Note:** ECMA-262 defines a `block` as a list of statements. A function declaration is not a statement. [Read ECMA-262's note on this issue](http://www.ecma-international.org/publications/files/ECMA-ST/Ecma-262.pdf#page=97).
+  - Ne déclarez jamais une fonction dans un bloc non-foncition (if, while, etc). Assignez plutôt la fonction à une variable. Les navigateurs vous permettront de le faire, mais ils l'interprèteront tous différemment, et là c'est la caca, la cata, la catastrophe.
+  - **Note :** ECMA-262 définit un `bloc` comme une liste d'instructions. Une déclaration de fonctions n'est pas une instruction. [Lisez la note d'ECMA-262 sur ce problème](http://www.ecma-international.org/publications/files/ECMA-ST/Ecma-262.pdf#page=97).
 
     ```javascript
-    // bad
+    // pas bien
     if (currentUser) {
       function test() {
         console.log('Nope.');
       }
     }
 
-    // good
+    // bien
     var test;
     if (currentUser) {
       test = function test() {
@@ -303,16 +303,16 @@
     }
     ```
 
-  - Never name a parameter `arguments`, this will take precedence over the `arguments` object that is given to every function scope.
+  - Ne nomez jamais un paramètre `arguments`, cela prendra précédent sur l'objet `arguments` qui est donné sur la portée de toutes les fonctions.
 
     ```javascript
-    // bad
+    // pas bien
     function nope(name, options, arguments) {
       // ...stuff...
     }
 
-    // good
-    function yup(name, options, args) {
+    // bien
+    function yup(name, options, params) {
       // ...stuff...
     }
     ```
@@ -321,9 +321,9 @@
 
 
 
-## <a name='properties'>Properties</a>
+## <a name='properties'>Propriétés</a>
 
-  - Use dot notation when accessing properties.
+  - Utilisez la notation point lorsque vous accédez aux propriétés.
 
     ```javascript
     var luke = {
@@ -331,14 +331,14 @@
       age: 28
     };
 
-    // bad
+    // pas bien
     var isJedi = luke['jedi'];
 
-    // good
+    // bien
     var isJedi = luke.jedi;
     ```
 
-  - Use subscript notation `[]` when accessing properties with a variable.
+  - Utilisez la notation `[]` lorsque vous accédez à des propriétés à l'aide d'une variable.
 
     ```javascript
     var luke = {
@@ -358,45 +358,45 @@
 
 ## <a name='variables'>Variables</a>
 
-  - Always use `var` to declare variables. Not doing so will result in global variables. We want to avoid polluting the global namespace. Captain Planet warned us of that.
+  - Utilisez toujours `var` pour déclarer des variables. Ne par faire ainsi résulterait dans la création de variables globales. Nous préfèrons éviter de poluer l'espace de noms global. Capitaine Planète nous a prévenu de cela.
 
     ```javascript
-    // bad
+    // pas bien
     superPower = new SuperPower();
 
-    // good
+    // bien
     var superPower = new SuperPower();
     ```
 
-  - Use one `var` declaration for multiple variables and declare each variable on a newline.
+  - Utiliez qu'une seule déclaration `var` pour de multiples variables et déclarez chacune sur une nouvelle ligne.
 
     ```javascript
-    // bad
+    // pas bien
     var items = getItems();
     var goSportsTeam = true;
     var dragonball = 'z';
 
-    // good
+    // bien
     var items = getItems(),
         goSportsTeam = true,
         dragonball = 'z';
     ```
 
-  - Declare unassigned variables last. This is helpful when later on you might need to assign a variable depending on one of the previous assigned variables.
+  - Déclarez les varibles indéfinies en dernier. C'est pratique lorsque plus tard vous aurez besoin d'assigner une variable en fonction d'une autre précédemment assignée.
 
     ```javascript
-    // bad
+    // pas bien
     var i, len, dragonball,
         items = getItems(),
         goSportsTeam = true;
 
-    // bad
+    // pas bien
     var i, items = getItems(),
         dragonball,
         goSportsTeam = true,
         len;
 
-    // good
+    // bien
     var items = getItems(),
         goSportsTeam = true,
         dragonball,
@@ -404,15 +404,15 @@
         i;
     ```
 
-  - Assign variables at the top of their scope. This helps avoid issues with variable declaration and assignment hoisting related issues.
+  - Assignez des variables au début de leur portée. Cela vous aide à éviter des problèmes avec la déclaration des variables et ceux liés au hissage des affectations.
 
     ```javascript
-    // bad
+    // pas bien
     function() {
       test();
       console.log('doing stuff..');
 
-      //..other stuff..
+      //..d'autre trucs..
 
       var name = getName();
 
@@ -423,14 +423,14 @@
       return name;
     }
 
-    // good
+    // bien
     function() {
       var name = getName();
 
       test();
       console.log('doing stuff..');
 
-      //..other stuff..
+      //..d'autre trucs..
 
       if (name === 'test') {
         return false;
@@ -439,7 +439,7 @@
       return name;
     }
 
-    // bad
+    // pas bien
     function() {
       var name = getName();
 
@@ -450,7 +450,7 @@
       return true;
     }
 
-    // good
+    // bien
     function() {
       if (!arguments.length) {
         return false;
@@ -465,29 +465,29 @@
     **[[⬆]](#TOC)**
 
 
-## <a name='hoisting'>Hoisting</a>
+## <a name='hoisting'>Hissage</a>
 
-  - Variable declarations get hoisted to the top of their scope, their assignment does not.
+  - Les déclarations de variables se font hisser jusqu'au haut de leur portée, mais pas leur affectation.
 
     ```javascript
-    // we know this wouldn't work (assuming there
-    // is no notDefined global variable)
+    // nous savons que cela ne marchera pas (en supposant
+    // qu'il n'existe pas de variable globale notDefined)
     function example() {
-      console.log(notDefined); // => throws a ReferenceError
+      console.log(notDefined); // => déclanche une ReferenceError
     }
 
-    // creating a variable declaration after you
-    // reference the variable will work due to
-    // variable hoisting. Note: the assignment
-    // value of `true` is not hoisted.
+    // créer une déclaration de variable après que vous
+    // référenciez une variable marchera grâce au
+    // hissage de variable. Note : cette affectation
+    // de la valeur `true` n'est pas hissée.
     function example() {
       console.log(declaredButNotAssigned); // => undefined
       var declaredButNotAssigned = true;
     }
 
-    // The interpreter is hoisting the variable
-    // declaration to the top of the scope.
-    // Which means our example could be rewritten as:
+    // L'interpréteur hisse la déclaration
+    // de variable au haut de la portée.
+    // Ce qui veut dire que notre exemple pourrait être écrit :
     function example() {
       var declaredButNotAssigned;
       console.log(declaredButNotAssigned); // => undefined
@@ -495,7 +495,7 @@
     }
     ```
 
-  - Anonymous function expressions hoist their variable name, but not the function assignment.
+  - Les expressions de fonctions anonymes hissent leur nom de variable, mais pas l'assignement de fonction.
 
     ```javascript
     function example() {
@@ -509,7 +509,7 @@
     }
     ```
 
-  - Named function expressions hoist the variable name, not the function name or the function body.
+  - Les expressions de fonctions nommées hissent leur nom de variable, pas le nom de la fonction ou son corps.
 
     ```javascript
     function example() {
@@ -524,8 +524,8 @@
       };
     }
 
-    // the same is true when the function name
-    // is the same as the variable name.
+    // il en est de même lorsque le nom de la fonction
+    // est le même que celui de la variable.
     function example() {
       console.log(named); // => undefined
 
@@ -537,7 +537,7 @@
     }
     ```
 
-  - Function declarations hoist their name and the function body.
+  - Les déclarations de fonctions hissent leur nom et leur corps.
 
     ```javascript
     function example() {
@@ -549,81 +549,81 @@
     }
     ```
 
-  - For more information refer to [JavaScript Scoping & Hoisting](http://www.adequatelygood.com/2010/2/JavaScript-Scoping-and-Hoisting) by [Ben Cherry](http://www.adequatelygood.com/)
+  - Pour plus d'informations, référrez-vous à [JavaScript Scoping & Hoisting](http://www.adequatelygood.com/2010/2/JavaScript-Scoping-and-Hoisting) par [Ben Cherry](http://www.adequatelygood.com/)
 
     **[[⬆]](#TOC)**
 
 
 
-## <a name='conditionals'>Conditional Expressions & Equality</a>
+## <a name='conditionals'>Expressions conditionnelles & Égalité</a>
 
-  - Use `===` and `!==` over `==` and `!=`.
-  - Conditional expressions are evaluated using coercion with the `ToBoolean` method and always follow these simple rules:
+  - Préférez `===` et `!==` à `==` et `!=`.
+  - Les expressions condtionnelles sont évaluées en utilisant la contrainte avec la méthode `ToBoolean` et suivent toujours ces rêgles simples :
 
-    + **Objects** evaluate to **true**
-    + **Undefined** evaluates to **false**
-    + **Null** evaluates to **false**
-    + **Booleans** evaluate to **the value of the boolean**
-    + **Numbers** evaluate to **false** if **+0, -0, or NaN**, otherwise **true**
-    + **Strings** evaluate to **false** if an empty string `''`, otherwise **true**
+    + Les **Objets** valent **true**
+    + **Undefined** vaut **false**
+    + **Null** vaut **false**
+    + Les **Booleéns** valent **la valeur du booléen**
+    + Les **Nombres** valent **false** si **+0, -0, ou NaN**, sinon **true**
+    + Les **Strings** valent **false** si string vide `''`, si **true**
 
     ```javascript
     if ([0]) {
       // true
-      // An array is an object, objects evaluate to true
+      // Un tableau est un objet, les objets valent true
     }
     ```
 
-  - Use shortcuts.
+  - Utilisez des raccourcis.
 
     ```javascript
-    // bad
+    // pas bien
     if (name !== '') {
       // ...stuff...
     }
 
-    // good
+    // bien
     if (name) {
       // ...stuff...
     }
 
-    // bad
+    // pas bien
     if (collection.length > 0) {
       // ...stuff...
     }
 
-    // good
+    // bien
     if (collection.length) {
       // ...stuff...
     }
     ```
 
-  - For more information see [Truth Equality and JavaScript](http://javascriptweblog.wordpress.com/2011/02/07/truth-equality-and-javascript/#more-2108) by Angus Croll
+  - Pour plus d'information, lisez [Truth Equality and JavaScript](http://javascriptweblog.wordpress.com/2011/02/07/truth-equality-and-javascript/#more-2108) par Angus Croll
 
     **[[⬆]](#TOC)**
 
 
-## <a name='blocks'>Blocks</a>
+## <a name='blocks'>Blocs</a>
 
-  - Use braces with all multi-line blocks.
+  - Utilisez des accolades avec tous les blocs de plusieurs lignes.
 
     ```javascript
-    // bad
+    // pas bien
     if (test)
       return false;
 
-    // good
+    // bien
     if (test) return false;
 
-    // good
+    // bien
     if (test) {
       return false;
     }
 
-    // bad
+    // pas bien
     function() { return false; }
 
-    // good
+    // bien
     function() {
       return false;
     }
@@ -632,12 +632,12 @@
     **[[⬆]](#TOC)**
 
 
-## <a name='comments'>Comments</a>
+## <a name='comments'>Commentaires</a>
 
-  - Use `/** ... */` for multiline comments. Include a description, specify types and values for all parameters and return values.
+  - Utilisez `/** ... */` pour des commentaires sur plusieurs lignes. Ajoutez une description, spécifiez les types et valeurs pour tous les paramètres et les valeurs de retour.
 
     ```javascript
-    // bad
+    // pas bien
     // make() returns a new element
     // based on the passed in tag name
     //
@@ -650,7 +650,7 @@
       return element;
     }
 
-    // good
+    // bien
     /**
      * make() returns a new element
      * based on the passed in tag name
@@ -666,17 +666,17 @@
     }
     ```
 
-  - Use `//` for single line comments. Place single line comments on a newline above the subject of the comment. Put an empty line before the comment.
+  - Utilisez `//` pour les lignes d'une seule ligne. Placez les commentaires d'une seule ligne sur une nouvelle ligne au-dessus du sujet du commentaire. Ajoutez une ligne vide au-dessus du commentaire.
 
     ```javascript
-    // bad
+    // pas bien
     var active = true;  // is current tab
 
-    // good
+    // bien
     // is current tab
     var active = true;
 
-    // bad
+    // pas bien
     function getType() {
       console.log('fetching type...');
       // set the default type to 'no type'
@@ -685,7 +685,7 @@
       return type;
     }
 
-    // good
+    // bien
     function getType() {
       console.log('fetching type...');
 
@@ -696,9 +696,9 @@
     }
     ```
 
-  - Prefixing your comments with `FIXME` or `TODO` helps other developers quickly understand if you're pointing out a problem that needs to be revisited, or if you're suggesting a solution to the problem that needs to be implemented. These are different than regular comments because they are actionable. The actions are `FIXME -- need to figure this out` or `TODO -- need to implement`.
+  - Préfixer vos commentaire avec `FIXME` ou `TODO` (et pas `ACORRIGER` ou `AFAIRE`, par pitié...) aide d'autres développeurs à comprendre rapidement si vous indiquez un problème qui doit être retravaillé, ou si vous suggérez une solution au problème qui devra être implémentée. Ceux-ci sont différents des commentaires classiques car ils peuvent entraîner une action. Ces actions sont `FIXME -- need to figure this out` ou `TODO -- need to implement`.
 
-  - Use `// FIXME:` to annotate problems
+  - Utilisez `// FIXME:` pour annoter des problèmes
 
     ```javascript
     function Calculator() {
@@ -710,7 +710,7 @@
     }
     ```
 
-  - Use `// TODO:` to annotate solutions to problems
+  - Utilisez `// TODO:` pour annoter des solutions aux problèmes
 
     ```javascript
     function Calculator() {
@@ -725,75 +725,75 @@
     **[[⬆]](#TOC)**
 
 
-## <a name='whitespace'>Whitespace</a>
+## <a name='whitespace'>Espaces</a>
 
-  - Use soft tabs set to 2 spaces
+  - Utilisez deux espaces pour des tabulations "douces"
 
     ```javascript
-    // bad
+    // pas bien
     function() {
     ∙∙∙∙var name;
     }
 
-    // bad
+    // pas bien
     function() {
     ∙var name;
     }
 
-    // good
+    // bien
     function() {
     ∙∙var name;
     }
     ```
-  - Place 1 space before the leading brace.
+  - Placez un espace avant une accolade ouvrante.
 
     ```javascript
-    // bad
+    // pas bien
     function test(){
       console.log('test');
     }
 
-    // good
+    // bien
     function test() {
       console.log('test');
     }
 
-    // bad
+    // pas bien
     dog.set('attr',{
       age: '1 year',
       breed: 'Bernese Mountain Dog'
     });
 
-    // good
+    // bien
     dog.set('attr', {
       age: '1 year',
       breed: 'Bernese Mountain Dog'
     });
     ```
-  - Place an empty newline at the end of the file.
+  - Placez une nouvelle ligne vide à la fin du fichier.
 
     ```javascript
-    // bad
+    // pas bien
     (function(global) {
       // ...stuff...
     })(this);
     ```
 
     ```javascript
-    // good
+    // bien
     (function(global) {
       // ...stuff...
     })(this);
 
     ```
 
-  - Use indentation when making long method chains.
+  - Utilisez des indentations lorsque vous faîtes de longues chaînes de méthodes.
 
     ```javascript
-    // bad
+    // pas bien
     $('#items').find('.selected').highlight().end().find('.open').updateCount();
 
-    // good
+    // bien
     $('#items')
       .find('.selected')
         .highlight()
@@ -801,13 +801,13 @@
       .find('.open')
         .updateCount();
 
-    // bad
+    // pas bien
     var leds = stage.selectAll('.led').data(data).enter().append('svg:svg').class('led', true)
         .attr('width',  (radius + margin) * 2).append('svg:g')
         .attr('transform', 'translate(' + (radius + margin) + ',' + (radius + margin) + ')')
         .call(tron.led);
 
-    // good
+    // bien
     var leds = stage.selectAll('.led')
         .data(data)
       .enter().append('svg:svg')
@@ -820,22 +820,22 @@
 
     **[[⬆]](#TOC)**
 
-## <a name='commas'>Commas</a>
+## <a name='commas'>Vigules</a>
 
-  - Leading commas: **Nope.**
+  - Virgules en début de ligne : **Nope.**
 
     ```javascript
-    // bad
+    // pas bien
     var once
       , upon
       , aTime;
 
-    // good
+    // bien
     var once,
         upon,
         aTime;
 
-    // bad
+    // pas bien
     var hero = {
         firstName: 'Bob'
       , lastName: 'Parr'
@@ -843,7 +843,7 @@
       , superPower: 'strength'
     };
 
-    // good
+    // bien
     var hero = {
       firstName: 'Bob',
       lastName: 'Parr',
@@ -852,12 +852,12 @@
     };
     ```
 
-  - Additional trailing comma: **Nope.** This can cause problems with IE6/7 and IE9 if it's in quirksmode. Also, in some implementations of ES3 would add length to an array if it had an additional trailing comma. This was clarified in ES5 ([source](http://es5.github.io/#D)):
+  - Virgule finale supplémentaire : **Nope.** Cela peut poser des problèmes avec IE6/7 et IE9 en mode Quirks. De plus, certaines implémentations de ES3 aujoutaient la longueur sa longueur à un tableu s'il avait une virgule finale supplémentaire. Cela fut clarifié dans ES5 ([source](http://es5.github.io/#D)):
 
   > Edition 5 clarifies the fact that a trailing comma at the end of an ArrayInitialiser does not add to the length of the array. This is not a semantic change from Edition 3 but some implementations may have previously misinterpreted this.
 
     ```javascript
-    // bad
+    // pas bien
     var hero = {
       firstName: 'Kevin',
       lastName: 'Flynn',
@@ -868,7 +868,7 @@
       'Superman',
     ];
 
-    // good
+    // bien
     var hero = {
       firstName: 'Kevin',
       lastName: 'Flynn'
@@ -883,24 +883,24 @@
     **[[⬆]](#TOC)**
 
 
-## <a name='semicolons'>Semicolons</a>
+## <a name='semicolons'>Point-virgules</a>
 
   - **Yup.**
 
     ```javascript
-    // bad
+    // pas bien
     (function() {
       var name = 'Skywalker'
       return name
     })()
 
-    // good
+    // bien
     (function() {
       var name = 'Skywalker';
       return name;
     })();
 
-    // good
+    // bien
     ;(function() {
       var name = 'Skywalker';
       return name;
@@ -910,102 +910,102 @@
     **[[⬆]](#TOC)**
 
 
-## <a name='type-coercion'>Type Casting & Coercion</a>
+## <a name='type-coercion'>Conversion de types & Contraintes</a>
 
-  - Perform type coercion at the beginning of the statement.
+  - Faîtes des contraintes de type au début de l'instruction.
   - Strings:
 
     ```javascript
     //  => this.reviewScore = 9;
 
-    // bad
+    // pas bien
     var totalScore = this.reviewScore + '';
 
-    // good
+    // bien
     var totalScore = '' + this.reviewScore;
 
-    // bad
+    // pas bien
     var totalScore = '' + this.reviewScore + ' total score';
 
-    // good
+    // bien
     var totalScore = this.reviewScore + ' total score';
     ```
 
-  - Use `parseInt` for Numbers and always with a radix for type casting.
+  - Utilisez `parseInt` pour les Nombres et toujours avec la base utilisée pour la conversion de types.
 
     ```javascript
     var inputValue = '4';
 
-    // bad
+    // pas bien
     var val = new Number(inputValue);
 
-    // bad
+    // pas bien
     var val = +inputValue;
 
-    // bad
+    // pas bien
     var val = inputValue >> 0;
 
-    // bad
+    // pas bien
     var val = parseInt(inputValue);
 
-    // good
+    // bien
     var val = Number(inputValue);
 
-    // good
+    // bien
     var val = parseInt(inputValue, 10);
     ```
 
-  - If for whatever reason you are doing something wild and `parseInt` is your bottleneck and need to use Bitshift for [performance reasons](http://jsperf.com/coercion-vs-casting/3), leave a comment explaining why and what you're doing.
-  - **Note:** Be careful when using bitshift operations. Numbers are represented as [64-bit values](http://es5.github.io/#x4.3.19), but Bitshift operations always return a 32-bit integer ([source](http://es5.github.io/#x11.7)). Bitshift can lead to unexpected behavior for integer values larger than 32 bits. [Discussion](https://github.com/airbnb/javascript/issues/109)
+  - Si pour quelque raison que ce soit vous faîtes quelque-chose de fou et que `parseInt` vous ralentit et que vous devez utiliser le décallage de bits pour des [questions de performances](http://jsperf.com/coercion-vs-casting/3), ajoutez un commentaire expliquant ce et pourquoi que vous le faîtes.
+  - **Note :**  Soyez prudent lorsque vous utilisez les opérations de décallage de bits. Les Nombres sont représentés comme des [valeurs sur 64 bits](http://es5.github.io/#x4.3.19), mais les opérations de décallage de bits renvoient toujours des entiers sur 32 bits ([source](http://es5.github.io/#x11.7)). Les décallages de bits peuvent entraîner des comportements innatendus pour des valeurs entières stockées sur plus de 32 bits. [Discussion](https://github.com/airbnb/javascript/issues/109)
 
     ```javascript
-    // good
+    // bien
     /**
-     * parseInt was the reason my code was slow.
-     * Bitshifting the String to coerce it to a
-     * Number made it a lot faster.
+     * parseInt était la rasion pour laquelle mon code était lent.
+     * Faire un décallage de bits sur la string pour la contraindre
+     * à un Number l'a rendu beaucoup plus rapide.
      */
     var val = inputValue >> 0;
     ```
 
-  - Booleans:
+  - Booléens:
 
     ```javascript
     var age = 0;
 
-    // bad
+    // pas bien
     var hasAge = new Boolean(age);
 
-    // good
+    // bien
     var hasAge = Boolean(age);
 
-    // good
+    // bien
     var hasAge = !!age;
     ```
 
     **[[⬆]](#TOC)**
 
 
-## <a name='naming-conventions'>Naming Conventions</a>
+## <a name='nantions'>Conventions de nommage</a>
 
-  - Avoid single letter names. Be descriptive with your naming.
+  - Évitez les noms d'une seule lettre. Soyez descriptifs dans votre déclaration.
 
     ```javascript
-    // bad
+    // pas bien
     function q() {
       // ...stuff...
     }
 
-    // good
+    // bien
     function query() {
       // ..stuff..
     }
     ```
 
-  - Use camelCase when naming objects, functions, and instances
+  - Utilisez la camelCase lorsque vous nomez vos objets, fonctions et instances
 
     ```javascript
-    // bad
+    // pas bien
     var OBJEcttsssss = {};
     var this_is_my_object = {};
     function c() {};
@@ -1013,7 +1013,7 @@
       name: 'Bob Parr'
     });
 
-    // good
+    // bien
     var thisIsMyObject = {};
     function thisIsMyFunction() {};
     var user = new User({
@@ -1021,10 +1021,10 @@
     });
     ```
 
-  - Use PascalCase when naming constructors or classes
+  - Utilisez la PascalCase lorsque vous nommez vos constructeurs ou classes
 
     ```javascript
-    // bad
+    // pas bien
     function user(options) {
       this.name = options.name;
     }
@@ -1033,7 +1033,7 @@
       name: 'nope'
     });
 
-    // good
+    // bien
     function User(options) {
       this.name = options.name;
     }
@@ -1043,21 +1043,21 @@
     });
     ```
 
-  - Use a leading underscore `_` when naming private properties
+  - Placez un underscore `_` au début du nom de vos propriétés privées
 
     ```javascript
-    // bad
+    // pas bien
     this.__firstName__ = 'Panda';
     this.firstName_ = 'Panda';
 
-    // good
+    // bien
     this._firstName = 'Panda';
     ```
 
-  - When saving a reference to `this` use `_this`.
+  - Lorsque vous sauvegardez une référence à `this`, utilisez `_this`.
 
     ```javascript
-    // bad
+    // pas bien
     function() {
       var self = this;
       return function() {
@@ -1065,7 +1065,7 @@
       };
     }
 
-    // bad
+    // pas bien
     function() {
       var that = this;
       return function() {
@@ -1073,7 +1073,7 @@
       };
     }
 
-    // good
+    // bien
     function() {
       var _this = this;
       return function() {
@@ -1082,15 +1082,15 @@
     }
     ```
 
-  - Name your functions. This is helpful for stack traces.
+  - Nommez vos fonctions. C'est utile lorsque vous regardez la pile d'appels de fonction.
 
     ```javascript
-    // bad
+    // pas bien
     var log = function(msg) {
       console.log(msg);
     };
 
-    // good
+    // bien
     var log = function log(msg) {
       console.log(msg);
     };
@@ -1099,40 +1099,40 @@
     **[[⬆]](#TOC)**
 
 
-## <a name='accessors'>Accessors</a>
+## <a name='accessors'>Accesseurs</a>
 
-  - Accessor functions for properties are not required
-  - If you do make accessor functions use getVal() and setVal('hello')
+  - Les fonctions d'accesseur pour les propriétés ne sont pas obligatoires
+  - Si vous faîtes des fonctions d'accès, utilisez getVal() et setVal('salut')
 
     ```javascript
-    // bad
+    // pas bien
     dragon.age();
 
-    // good
+    // bien
     dragon.getAge();
 
-    // bad
+    // pas bien
     dragon.age(25);
 
-    // good
+    // bien
     dragon.setAge(25);
     ```
 
-  - If the property is a boolean, use isVal() or hasVal()
+  - Si la propriété est un booléen, utilisez isVal() ou hasVal()
 
     ```javascript
-    // bad
+    // pas bien
     if (!dragon.age()) {
       return false;
     }
 
-    // good
+    // bien
     if (!dragon.hasAge()) {
       return false;
     }
     ```
 
-  - It's okay to create get() and set() functions, but be consistent.
+  - Vous pouvez créez des fonctions get() et set(), mais restez cohérents.
 
     ```javascript
     function Jedi(options) {
@@ -1153,16 +1153,16 @@
     **[[⬆]](#TOC)**
 
 
-## <a name='constructors'>Constructors</a>
+## <a name='constructors'>Constructeurs</a>
 
-  - Assign methods to the prototype object, instead of overwriting the prototype with a new object. Overwriting the prototype makes inheritance impossible: by resetting the prototype you'll overwrite the base!
+  - Assignez des méthodes à l'objet prototype, au lieu de l'écrase avec un nouvel objet. L'écrase rend l'héritage impossible : en réininitialisant le protoype, vous effacerait l'original !
 
     ```javascript
     function Jedi() {
       console.log('new jedi');
     }
 
-    // bad
+    // pas bien
     Jedi.prototype = {
       fight: function fight() {
         console.log('fighting');
@@ -1173,7 +1173,7 @@
       }
     };
 
-    // good
+    // bien
     Jedi.prototype.fight = function fight() {
       console.log('fighting');
     };
@@ -1183,10 +1183,10 @@
     };
     ```
 
-  - Methods can return `this` to help with method chaining.
+  - Les méthodes peuvent renvoyer `this` pour aider avec le chaînage de méthodes.
 
     ```javascript
-    // bad
+    // pas bien
     Jedi.prototype.jump = function() {
       this.jumping = true;
       return true;
@@ -1200,7 +1200,7 @@
     luke.jump(); // => true
     luke.setHeight(20) // => undefined
 
-    // good
+    // bien
     Jedi.prototype.jump = function() {
       this.jumping = true;
       return this;
@@ -1218,7 +1218,7 @@
     ```
 
 
-  - It's okay to write a custom toString() method, just make sure it works successfully and causes no side effects.
+  - Vous pouvez créer une méthode toString() personalisée, mais soyez sûr qu'elle marche correctement et qu'elle ne cause aucun effet secondaire.
 
     ```javascript
     function Jedi(options) {
@@ -1238,12 +1238,12 @@
     **[[⬆]](#TOC)**
 
 
-## <a name='events'>Events</a>
+## <a name='events'>Évênements</a>
 
-  - When attaching data payloads to events (whether DOM events or something more proprietary like Backbone events), pass a hash instead of a raw value. This allows a subsequent contributor to add more data to the event payload without finding and updating every handler for the event. For example, instead of:
+  - Lorsque vous attachez des données utiles à vos évênements (qu'il s'agisse d'évênements du DOM ou quelque chose de plus propriétaire comme les évênements de Backbone), transmettez plutôt un object "hash" au lieu de données bruttes. Cela permet au contributeurs suivants d'ajouter plus de données à l'évênements sans rechercher et modifier tous les gestionnaires pour l'évênement. Par exemple :
 
     ```js
-    // bad
+    // pas bien
     $(this).trigger('listingUpdated', listing.id);
 
     ...
@@ -1256,7 +1256,7 @@
     prefer:
 
     ```js
-    // good
+    // bien
     $(this).trigger('listingUpdated', { listingId : listing.id });
 
     ...
@@ -1271,10 +1271,10 @@
 
 ## <a name='modules'>Modules</a>
 
-  - The module should start with a `!`. This ensures that if a malformed module forgets to include a final semicolon there aren't errors in production when the scripts get concatenated. [Explanation](https://github.com/airbnb/javascript/issues/44#issuecomment-13063933)
-  - The file should be named with camelCase, live in a folder with the same name, and match the name of the single export.
-  - Add a method called noConflict() that sets the exported module to the previous version and returns this one.
-  - Always declare `'use strict';` at the top of the module.
+  - Le module devrait commencer avec un `!`. Cela assure que, si un module malformé oublit d'ajouter un point virgule final, il n'y aura pas d'erreur en production lorsque les scripts seront concaténnés. [Explication](https://github.com/airbnb/javascript/issues/44#issuecomment-13063933)
+  - Le fichier devrait être nommé avec la camelCase, se situer dans un fichier avec le même nom, et correspondre au nom du seul export.
+  - Ajoutez une méthode nommée noConflict() qui prépare le module exporté à sa version précédente et le renvoit.
+  - Déclarez toujours `'use strict';` au début du module.
 
     ```javascript
     // fancyInput/fancyInput.js
@@ -1302,20 +1302,20 @@
 
 ## <a name='jquery'>jQuery</a>
 
-  - Prefix jQuery object variables with a `$`.
+  - Prefixez vos variables d'objets jQuery avec un `$`.
 
     ```javascript
-    // bad
+    // pas bien
     var sidebar = $('.sidebar');
 
-    // good
+    // bien
     var $sidebar = $('.sidebar');
     ```
 
-  - Cache jQuery lookups.
+  - Mettez en cache les requêtes jQuery.
 
     ```javascript
-    // bad
+    // pas bien
     function setSidebar() {
       $('.sidebar').hide();
 
@@ -1326,7 +1326,7 @@
       });
     }
 
-    // good
+    // bien
     function setSidebar() {
       var $sidebar = $('.sidebar');
       $sidebar.hide();
@@ -1339,37 +1339,37 @@
     }
     ```
 
-  - For DOM queries use Cascading `$('.sidebar ul')` or parent > child `$('.sidebar > ul')`. [jsPerf](http://jsperf.com/jquery-find-vs-context-sel/16)
-  - Use `find` with scoped jQuery object queries.
+  - Pour les requêtes du DOM, utilisez le sélecteur en cascades `$('.sidebar ul')` ou le parent > enfant `$('.sidebar > ul')`. [jsPerf](http://jsperf.com/jquery-find-vs-context-sel/16)
+  - Utilisez `find` avec des objets de requêtes jQuery apparetenant à la portée.
 
     ```javascript
-    // bad
+    // pas bien
     $('ul', '.sidebar').hide();
 
-    // bad
+    // pas bien
     $('.sidebar').find('ul').hide();
 
-    // good
+    // bien
     $('.sidebar ul').hide();
 
-    // good
+    // bien
     $('.sidebar > ul').hide();
 
-    // good
+    // bien
     $sidebar.find('ul');
     ```
 
     **[[⬆]](#TOC)**
 
 
-## <a name='es5'>ECMAScript 5 Compatibility</a>
+## <a name='es5'>Compatibilité ECMAScript 5</a>
 
-  - Refer to [Kangax](https://twitter.com/kangax/)'s ES5 [compatibility table](http://kangax.github.com/es5-compat-table/)
+  - Réferrez vous à la [table de compatibilité](http://kangax.github.com/es5-compat-table/) ES5 de [Kangax](https://twitter.com/kangax/)
 
   **[[⬆]](#TOC)**
 
 
-## <a name='testing'>Testing</a>
+## <a name='testing'>Test</a>
 
   - **Yup.**
 
@@ -1391,7 +1391,7 @@
   - [jQuery Find vs Context, Selector](http://jsperf.com/jquery-find-vs-context-sel/13)
   - [innerHTML vs textContent for script text](http://jsperf.com/innerhtml-vs-textcontent-for-script-text)
   - [Long String Concatenation](http://jsperf.com/ya-string-concat)
-  - Loading...
+  - Chargement en cours...
 
   **[[⬆]](#TOC)**
 
@@ -1399,28 +1399,28 @@
 ## <a name='resources'>Resources</a>
 
 
-**Read This**
+**Lisez ceci**
 
   - [Annotated ECMAScript 5.1](http://es5.github.com/)
 
-**Other Styleguides**
+**Autres Guides de Style**
 
   - [Google JavaScript Style Guide](http://google-styleguide.googlecode.com/svn/trunk/javascriptguide.xml)
   - [jQuery Core Style Guidelines](http://docs.jquery.com/JQuery_Core_Style_Guidelines)
   - [Principles of Writing Consistent, Idiomatic JavaScript](https://github.com/rwldrn/idiomatic.js/)
 
-**Other Styles**
+**Autres Styles**
 
   - [Naming this in nested functions](https://gist.github.com/4135065) - Christian Johansen
   - [Conditional Callbacks](https://github.com/airbnb/javascript/issues/52)
   - [Popular JavaScript Coding Conventions on Github](http://sideeffect.kr/popularconvention/#javascript)
 
-**Further Reading**
+**Pour en savoir Plus**
 
   - [Understanding JavaScript Closures](http://javascriptweblog.wordpress.com/2010/10/25/understanding-javascript-closures/) - Angus Croll
   - [Basic JavaScript for the impatient programmer](http://www.2ality.com/2013/06/basic-javascript.html) - Dr. Axel Rauschmayer
 
-**Books**
+**Livres**
 
   - [JavaScript: The Good Parts](http://www.amazon.com/JavaScript-Good-Parts-Douglas-Crockford/dp/0596517742) - Douglas Crockford
   - [JavaScript Patterns](http://www.amazon.com/JavaScript-Patterns-Stoyan-Stefanov/dp/0596806752) - Stoyan Stefanov
@@ -1451,9 +1451,9 @@
 
   **[[⬆]](#TOC)**
 
-## <a name='in-the-wild'>In the Wild</a>
+## <a name='in-the-wild'>Dans la Nature</a>
 
-  This is a list of organizations that are using this style guide. Send us a pull request or open an issue and we'll add you to the list.
+  Ceci est une liste de toutes les organisations qui utilisent ce guilde de style. Envoyez-nous une pull request ou ouvrez une issue (sur le repo original) et nous vous ajouterons à la liste.
 
   - **Aan Zee**: [AanZee/javascript](https://github.com/AanZee/javascript)
   - **Airbnb**: [airbnb/javascript](https://github.com/airbnb/javascript)
@@ -1476,24 +1476,28 @@
   - **Zillow**: [zillow/javascript](https://github.com/zillow/javascript)
   - **ZocDoc**: [ZocDoc/javascript](https://github.com/ZocDoc/javascript)
 
-## <a name='translation'>Translation</a>
+## <a name='translation'>Traductions</a>
 
-  This style guide is also available in other languages:
+  Ce guide de style dans sa version originale :
 
-  - :de: **German**: [timofurrer/javascript-style-guide](https://github.com/timofurrer/javascript-style-guide)
-  - :jp: **Japanese**: [mitsuruog/javacript-style-guide](https://github.com/mitsuruog/javacript-style-guide)
-  - :br: **Portuguese**: [armoucar/javascript-style-guide](https://github.com/armoucar/javascript-style-guide)
-  - :cn: **Chinese**: [adamlu/javascript-style-guide](https://github.com/adamlu/javascript-style-guide)
-  - :es: **Spanish**: [paolocarrasco/javascript-style-guide](https://github.com/paolocarrasco/javascript-style-guide)
-  - :kr: **Korean**: [tipjs/javascript-style-guide](https://github.com/tipjs/javascript-style-guide)
+  - :en: **Anglais** : [airbnb/javascript-style-guide](https://github.com/airbnb/javascript-style-guide)
 
-## <a name='guide-guide'>The JavaScript Style Guide Guide</a>
+  Et dans d'autres langues :
 
-  - [Reference](https://github.com/airbnb/javascript/wiki/The-JavaScript-Style-Guide-Guide)
+  - :de: **Allemand** : [timofurrer/javascript-style-guide](https://github.com/timofurrer/javascript-style-guide)
+  - :jp: **Japonais** : [mitsuruog/javacript-style-guide](https://github.com/mitsuruog/javacript-style-guide)
+  - :br: **Portugais** : [armoucar/javascript-style-guide](https://github.com/armoucar/javascript-style-guide)
+  - :cn: **Chinois** : [adamlu/javascript-style-guide](https://github.com/adamlu/javascript-style-guide)
+  - :es: **Espagnol** : [paolocarrasco/javascript-style-guide](https://github.com/paolocarrasco/javascript-style-guide)
+  - :kr: **Coréen**: [tipjs/javascript-style-guide](https://github.com/tipjs/javascript-style-guide)
 
-## <a name='authors'>Contributors</a>
+## <a name='guide-guide'>Le Guide au Guide de Style Javascript</a>
 
-  - [View Contributors](https://github.com/airbnb/javascript/graphs/contributors)
+  - [Référence](https://github.com/airbnb/javascript/wiki/The-JavaScript-Style-Guide-Guide)
+
+## <a name='authors'>Contributeurs</a>
+
+  - [Voir les Contributeurs](https://github.com/airbnb/javascript/graphs/contributors)
 
 
 ## <a name='license'>License</a>
