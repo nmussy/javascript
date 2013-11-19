@@ -1480,7 +1480,7 @@
 
   Ce guide de style dans sa version originale :
 
-  - :en: **Anglais** : [airbnb/javascript-style-guide](https://github.com/airbnb/javascript-style-guide)
+  - :us: **Anglais** : [airbnb/javascript](https://github.com/airbnb/javascript)
 
   Et dans d'autres langues :
 
