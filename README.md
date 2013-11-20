@@ -38,7 +38,7 @@
 
 ## <a name='types'>Types</a>
 
-  - **Primitifs**: Quand vous accéÉvitez les noms d'une seule lettre. Soyez descriptifs dans votre déclaration.
+  - **Primitifs**: Quand vous accédez à un type primitif, travaillez directement avec sa valeur
 
     + `string`
     + `number`
@@ -160,7 +160,7 @@
     objetsCopie = objets.slice();
     ```
 
-  - Pour convertir un objet quasi-tableau en un tableau, utilisez Array#slice.
+  - Pour convertir un objet semblable à un tableau en un tableau, utilisez Array#slice.
 
     ```javascript
     function trigger() {
@@ -174,7 +174,7 @@
 
 ## <a name='strings'>Strings</a>
 
-  - Utilisez les apostrophes (single quote) `''` pour les strings
+  - Utilisez les apostrophes (single quotes) `''` pour les strings
 
     ```javascript
     // pas bien
@@ -191,7 +191,7 @@
     ```
 
   - Les strings faisant plus de 80 caractères devraient être écrites sur plusieurs lignes, en utilisant la concaténation des chaînes de caractères.
-  - Note : Si trop utilisé, les strings longues concaténées peuvent influencer sur les performances. [jsPerf](http://jsperf.com/ya-string-concat) & [Discussion](https://github.com/airbnb/javascript/issues/40)
+  - Note : Si trop utilisée, la concaténation de strings trop longues peut influencer les performances. [jsPerf](http://jsperf.com/ya-string-concat) & [Discussion](https://github.com/airbnb/javascript/issues/40)
 
     ```javascript
     // pas bien
@@ -215,7 +215,7 @@
       'fast.';
     ```
 
-  - Quand vous contruisez programmatiquement une string, utilisez Array#join à la place de la concaténation de strings. Principalement pour IE : [jsPerf](http://jsperf.com/string-vs-array-concat/2).
+  - Quand vous contruisez programmatiquement une string, utilisez Array#join à la place de l'opérateur de concaténation. Principalement pour IE : [jsPerf](http://jsperf.com/string-vs-array-concat/2).
 
     ```javascript
     var objets,
@@ -283,8 +283,8 @@
     })();
     ```
 
-  - Ne déclarez jamais une fonction dans un bloc non-foncition (if, while, etc). Assignez plutôt la fonction à une variable. Les navigateurs vous permettront de le faire, mais ils l'interprèteront tous différemment, et là c'est la caca, la cata, la catastrophe.
-  - **Note :** ECMA-262 définit un `bloc` comme une liste d'instructions. Une déclaration de fonctions n'est pas une instruction. [Lisez la note d'ECMA-262 sur ce problème](http://www.ecma-international.org/publications/files/ECMA-ST/Ecma-262.pdf#page=97).
+  - Ne déclarez jamais une fonction dans un bloc non-foncition (if, while, etc). Assignez plutôt la fonction à une variable. Les navigateurs vous permettront de le faire, mais ils l'interprèteront tous différemment, et là c'est la caca, c'est la cata, c'est la catastrophe.
+  - **Note :** ECMA-262 définit un `bloc` comme une série d'instructions. La déclaration d'une fonction n'est pas une instruction. [Lisez la note d'ECMA-262 sur ce problème](http://www.ecma-international.org/publications/files/ECMA-ST/Ecma-262.pdf#page=97).
 
     ```javascript
     // pas bien
@@ -303,7 +303,7 @@
     }
     ```
 
-  - Ne nomez jamais un paramètre `arguments`, cela prendra précédent sur l'objet `arguments` qui est donné sur la portée de toutes les fonctions.
+  - Ne nommez jamais un paramètre `arguments`, cela prendra précédent sur l'objet `arguments` qui est donné dans la portée de toutes les fonctions.
 
     ```javascript
     // pas bien
@@ -358,7 +358,7 @@
 
 ## <a name='variables'>Variables</a>
 
-  - Utilisez toujours `var` pour déclarer des variables. Ne par faire ainsi résulterait dans la création de variables globales. Nous préfèrons éviter de poluer l'espace de noms global. Capitaine Planète nous a prévenu de cela.
+  - Utilisez toujours `var` pour déclarer des variables. Ne par le faire entaîne dans la création de variables globales. Nous préfèrons éviter de poluer l'espace de noms global. Capitaine Planète nous a prévenu de ces dangers.
 
     ```javascript
     // pas bien
@@ -368,7 +368,7 @@
     var superPower = new SuperPower();
     ```
 
-  - Utiliez qu'une seule déclaration `var` pour de multiples variables et déclarez chacune sur une nouvelle ligne.
+  - N'utiliez qu'une seule déclaration `var` pour de multiples variables et déclarez chacune d'entre elles sur une nouvelle ligne.
 
     ```javascript
     // pas bien
@@ -382,7 +382,7 @@
         dragonball = 'z';
     ```
 
-  - Déclarez les varibles indéfinies en dernier. C'est pratique lorsque plus tard vous aurez besoin d'assigner une variable en fonction d'une autre précédemment assignée.
+  - Déclarez les varibles indéfinies en dernier. Cela s'avère pratique lorsque plus tard vous aurez besoin d'assigner une variable en fonction d'une autre précédemment assignée.
 
     ```javascript
     // pas bien
@@ -404,7 +404,7 @@
         i;
     ```
 
-  - Assignez des variables au début de leur portée. Cela vous aide à éviter des problèmes avec la déclaration des variables et ceux liés au hissage des affectations.
+  - Assignez vos variables au début de leur portée. Cela vous aide à éviter des problèmes avec la déclaration des variables et ceux liés au hissage de leur affectation.
 
     ```javascript
     // pas bien
@@ -467,7 +467,7 @@
 
 ## <a name='hoisting'>Hissage</a>
 
-  - Les déclarations de variables se font hisser jusqu'au haut de leur portée, mais pas leur affectation.
+  - Les déclarations de variables se font hisser jusqu'au début de leur portée, mais pas leur affectation.
 
     ```javascript
     // nous savons que cela ne marchera pas (en supposant
@@ -476,9 +476,9 @@
       console.log(notDefined); // => déclanche une ReferenceError
     }
 
-    // créer une déclaration de variable après que vous
-    // référenciez une variable marchera grâce au
-    // hissage de variable. Note : cette affectation
+    // Déclarer une variable après que vous
+    // y référenciez marchera grâce au
+    // hissage de variable. Note : l'affectation
     // de la valeur `true` n'est pas hissée.
     function example() {
       console.log(declaredButNotAssigned); // => undefined
@@ -486,7 +486,7 @@
     }
 
     // L'interpréteur hisse la déclaration
-    // de variable au haut de la portée.
+    // de variable au début de la portée.
     // Ce qui veut dire que notre exemple pourrait être écrit :
     function example() {
       var declaredButNotAssigned;
@@ -495,7 +495,7 @@
     }
     ```
 
-  - Les expressions de fonctions anonymes hissent leur nom de variable, mais pas l'assignement de fonction.
+  - Les expressions de fonctions anonymes hissent leur nom de variable, mais pas leur assignement.
 
     ```javascript
     function example() {
@@ -558,14 +558,14 @@
 ## <a name='conditionals'>Expressions conditionnelles & Égalité</a>
 
   - Préférez `===` et `!==` à `==` et `!=`.
-  - Les expressions condtionnelles sont évaluées en utilisant la contrainte avec la méthode `ToBoolean` et suivent toujours ces rêgles simples :
+  - Les expressions condtionnelles sont évaluées en utilisant les contrainte imposées par la méthode `ToBoolean` et suivent toujours ces simples rêgles :
 
     + Les **Objets** valent **true**
     + **Undefined** vaut **false**
     + **Null** vaut **false**
     + Les **Booleéns** valent **la valeur du booléen**
     + Les **Nombres** valent **false** si **+0, -0, ou NaN**, sinon **true**
-    + Les **Strings** valent **false** si string vide `''`, si **true**
+    + Les **Strings** valent **false** si la string est vide `''`, sinon **true**
 
     ```javascript
     if ([0]) {
@@ -605,7 +605,7 @@
 
 ## <a name='blocks'>Blocs</a>
 
-  - Utilisez des accolades avec tous les blocs de plusieurs lignes.
+  - Entourrez d'accollades tous vos blocs contenus sur plusieurs lignes.
 
     ```javascript
     // pas bien
@@ -634,7 +634,7 @@
 
 ## <a name='comments'>Commentaires</a>
 
-  - Utilisez `/** ... */` pour des commentaires sur plusieurs lignes. Ajoutez une description, spécifiez les types et valeurs pour tous les paramètres et les valeurs de retour.
+  - Utilisez `/** ... */` pour des commentaires qui s'étendent sur plusieurs lignes. Insérez une description, spécifiez les types et valeurs par défaut pour tous les paramètres et les valeurs de retour.
 
     ```javascript
     // pas bien
@@ -666,7 +666,7 @@
     }
     ```
 
-  - Utilisez `//` pour les lignes d'une seule ligne. Placez les commentaires d'une seule ligne sur une nouvelle ligne au-dessus du sujet du commentaire. Ajoutez une ligne vide au-dessus du commentaire.
+  - Utilisez `//` pour les commentaires d'une seule ligne. Placez-les sur une nouvelle ligne au-dessus du sujet du commentaire. Ajoutez une ligne vide au-dessus du commentaire.
 
     ```javascript
     // pas bien
@@ -696,7 +696,7 @@
     }
     ```
 
-  - Préfixer vos commentaire avec `FIXME` ou `TODO` (et pas `ACORRIGER` ou `AFAIRE`, par pitié...) aide d'autres développeurs à comprendre rapidement si vous indiquez un problème qui doit être retravaillé, ou si vous suggérez une solution au problème qui devra être implémentée. Ceux-ci sont différents des commentaires classiques car ils peuvent entraîner une action. Ces actions sont `FIXME -- need to figure this out` ou `TODO -- need to implement`.
+  - Préfixer vos commentaire avec `FIXME` ou `TODO` (et pas `ACORRIGER` ou `AFAIRE`, par pitié...) aide d'autres développeurs à comprendre rapidement si vous indiquez un problème qui doit être retravaillé, ou permet de suggérer une solution au problème qui devra être implémentée. Ceux-ci sont différents des commentaires classiques car ils peuvent entraîner une action. Ces actions sont `FIXME -- need to figure this out` ou `TODO -- need to implement`.
 
   - Utilisez `// FIXME:` pour annoter des problèmes
 
@@ -770,7 +770,7 @@
       breed: 'Bernese Mountain Dog'
     });
     ```
-  - Placez une nouvelle ligne vide à la fin du fichier.
+  - Ajoutez une nouvelle ligne vide à la fin du fichier.
 
     ```javascript
     // pas bien
@@ -787,7 +787,7 @@
 
     ```
 
-  - Utilisez des indentations lorsque vous faîtes de longues chaînes de méthodes.
+  - Indentez vos longues chaînes de méthodes.
 
     ```javascript
     // pas bien
@@ -820,7 +820,7 @@
 
     **[[⬆]](#TOC)**
 
-## <a name='commas'>Vigules</a>
+## <a name='commas'>Virgules</a>
 
   - Virgules en début de ligne : **Nope.**
 
@@ -852,7 +852,7 @@
     };
     ```
 
-  - Virgule finale supplémentaire : **Nope.** Cela peut poser des problèmes avec IE6/7 et IE9 en mode Quirks. De plus, certaines implémentations de ES3 aujoutaient la longueur sa longueur à un tableu s'il avait une virgule finale supplémentaire. Cela fut clarifié dans ES5 ([source](http://es5.github.io/#D)):
+  - Virgule finale supplémentaire : **Nope.** Cela peut poser des problèmes avec IE6/7 et IE9 en mode Quirks. De plus, certaines implémentations de ES3 aujoutaient sa longueur à un tableu s'il avait une virgule finale supplémentaire. Cela fut clarifié dans ES5 ([source](http://es5.github.io/#D)):
 
   > Edition 5 clarifies the fact that a trailing comma at the end of an ArrayInitialiser does not add to the length of the array. This is not a semantic change from Edition 3 but some implementations may have previously misinterpreted this.
 
@@ -912,7 +912,7 @@
 
 ## <a name='type-coercion'>Conversion de types & Contraintes</a>
 
-  - Faîtes des contraintes de type au début de l'instruction.
+  - Faîtes vos contraintes de type au début de l'instruction.
   - Strings:
 
     ```javascript
@@ -931,7 +931,7 @@
     var totalScore = this.reviewScore + ' total score';
     ```
 
-  - Utilisez `parseInt` pour les Nombres et toujours avec la base utilisée pour la conversion de types.
+  - Utilisez `parseInt` pour les Nombres et toujours avec la base numérique utilisée lors de la conversion.
 
     ```javascript
     var inputValue = '4';
@@ -955,7 +955,7 @@
     var val = parseInt(inputValue, 10);
     ```
 
-  - Si pour quelque raison que ce soit vous faîtes quelque-chose de fou et que `parseInt` vous ralentit et que vous devez utiliser le décallage de bits pour des [questions de performances](http://jsperf.com/coercion-vs-casting/3), ajoutez un commentaire expliquant ce et pourquoi que vous le faîtes.
+  - Si pour quelque raison que ce soit vous faîtes quelque chose de fou-fou, que `parseInt` vous ralentit et que vous devez utiliser le décallage de bits pour des [raisons de performances](http://jsperf.com/coercion-vs-casting/3), ajoutez un commentaire expliquant ce et pourquoi que vous le faîtes.
   - **Note :**  Soyez prudent lorsque vous utilisez les opérations de décallage de bits. Les Nombres sont représentés comme des [valeurs sur 64 bits](http://es5.github.io/#x4.3.19), mais les opérations de décallage de bits renvoient toujours des entiers sur 32 bits ([source](http://es5.github.io/#x11.7)). Les décallages de bits peuvent entraîner des comportements innatendus pour des valeurs entières stockées sur plus de 32 bits. [Discussion](https://github.com/airbnb/javascript/issues/109)
 
     ```javascript
@@ -988,7 +988,7 @@
 
 ## <a name='nantions'>Conventions de nommage</a>
 
-  - Évitez les noms d'une seule lettre. Soyez descriptifs dans votre déclaration.
+  - Évitez les noms ne faisant qu'une seule lettre. Soyez descriptifs dans votre déclaration.
 
     ```javascript
     // pas bien
@@ -1021,7 +1021,7 @@
     });
     ```
 
-  - Utilisez la PascalCase lorsque vous nommez vos constructeurs ou classes
+  - Utilisez la PascalCase lorsque vous nommez vos constructeurs ou vos classes
 
     ```javascript
     // pas bien
@@ -1043,7 +1043,7 @@
     });
     ```
 
-  - Placez un underscore `_` au début du nom de vos propriétés privées
+  - Ajoutez un underscore `_` au début du nom de vos propriétés privées
 
     ```javascript
     // pas bien
@@ -1082,7 +1082,7 @@
     }
     ```
 
-  - Nommez vos fonctions. C'est utile lorsque vous regardez la pile d'appels de fonction.
+  - Nommez vos fonctions. Cela s'avère pratique lorsque vous étudiez la pile d'exécution.
 
     ```javascript
     // pas bien
@@ -1155,7 +1155,7 @@
 
 ## <a name='constructors'>Constructeurs</a>
 
-  - Assignez des méthodes à l'objet prototype, au lieu de l'écrase avec un nouvel objet. L'écrase rend l'héritage impossible : en réininitialisant le protoype, vous effacerait l'original !
+  - Assignez des méthodes à l'objet prototype, au lieu de l'écraser avec un nouvel objet. L'écraser rend l'héritage impossible : en réininitialisant le protoype, vous effacez le prototype père !
 
     ```javascript
     function Jedi() {
@@ -1183,7 +1183,7 @@
     };
     ```
 
-  - Les méthodes peuvent renvoyer `this` pour aider avec le chaînage de méthodes.
+  - Les méthodes peuvent renvoyer `this` pour permettre le chaînage de méthodes.
 
     ```javascript
     // pas bien
@@ -1240,7 +1240,7 @@
 
 ## <a name='events'>Évènements</a>
 
-  - Lorsque vous attachez des données utiles à vos évènements (qu'il s'agisse d'évènements du DOM ou quelque chose de plus propriétaire comme les évènements de Backbone), transmettez plutôt un object "hash" au lieu de données bruttes. Cela permet au contributeurs suivants d'ajouter plus de données à l'évènements sans rechercher et modifier tous les gestionnaires pour l'évènement. Par exemple :
+  - Lorsque vous attachez des données utiles à vos évènements (qu'il s'agisse d'évènements du DOM ou quelque chose de plus propriétaire comme les évènements de Backbone), transmettez plutôt un object "hash" au lieu de données brutes. Cela permet au contributeurs suivants d'ajouter plus de données à l'évènement sans rechercher et modifier tous les gestionnaires de l'évènement. Par exemple :
 
     ```js
     // pas bien
@@ -1271,9 +1271,9 @@
 
 ## <a name='modules'>Modules</a>
 
-  - Le module devrait commencer avec un `!`. Cela assure que, si un module malformé oublit d'ajouter un point virgule final, il n'y aura pas d'erreur en production lorsque les scripts seront concaténnés. [Explication](https://github.com/airbnb/javascript/issues/44#issuecomment-13063933)
-  - Le fichier devrait être nommé avec la camelCase, se situer dans un fichier avec le même nom, et correspondre au nom du seul export.
-  - Ajoutez une méthode nommée noConflict() qui prépare le module exporté à sa version précédente et le renvoit.
+  - Le module devrait commencer avec un `!`. Cela vous assure que, si un module malformé oublie d'ajouter un point virgule final, il n'y aura pas d'erreur en production lorsque les scripts seront concaténnés. [Explication](https://github.com/airbnb/javascript/issues/44#issuecomment-13063933)
+  - Le fichier devrait être nommé avec la camelCase, se situer dans un dossier avec le même nom, et correspondre au nom du seul élément exporté.
+  - Ajoutez une méthode nommée noConflict() qui restaure le module exporté à sa version précédente et le renvoit.
   - Déclarez toujours `'use strict';` au début du module.
 
     ```javascript
@@ -1312,7 +1312,7 @@
     var $sidebar = $('.sidebar');
     ```
 
-  - Mettez en cache les requêtes jQuery.
+  - Mettez en cache vos requêtes jQuery.
 
     ```javascript
     // pas bien
@@ -1528,4 +1528,3 @@ SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 **[[⬆]](#TOC)**
 
 # };
-
