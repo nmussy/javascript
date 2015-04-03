@@ -38,7 +38,7 @@
 
 ## <a name='types'>Types</a>
 
-  - **Primitifs**: Quand vous accédez à un type primitif, travaillez directement avec sa valeur
+  - **Primitifs**: Quand vous accédez à un type primitif, vous travaillez directement avec sa valeur.
 
     + `string`
     + `number`
@@ -54,7 +54,7 @@
 
     console.log(foo, bar); // => 1, 9
     ```
-  - **Complexe**: Quand vous accédez à un type complexe, travaillez avec une référence de sa valeur
+  - **Complexe**: Quand vous accédez à un type complexe, vous travaillez avec une référence de sa valeur.
 
     + `object`
     + `array`
@@ -73,7 +73,7 @@
 
 ## <a name='objects'>Objets</a>
 
-  - Utilisez la syntaxe littérale pour la création d'un objet
+  - Utilisez la syntaxe littérale pour la création d'un objet.
 
     ```javascript
     // pas bien
@@ -121,7 +121,7 @@
 
 ## <a name='arrays'>Tableaux</a>
 
-  - Utilisez la syntaxe littérale pour la création d'un objet
+  - Utilisez la syntaxe littérale pour la création d'un objet.
 
     ```javascript
     // pas bien
@@ -172,9 +172,9 @@
     **[[⬆]](#TOC)**
 
 
-## <a name='strings'>Strings</a>
+## <a name='strings'>Chaînes de caractères</a>
 
-  - Utilisez les apostrophes (single quotes) `''` pour les strings
+  - Utilisez les apostrophes (single quotes) `''` pour les chaînes de caractères.
 
     ```javascript
     // pas bien
@@ -190,8 +190,8 @@
     var nomComplet = 'Bob ' + this.nomDeFamille;
     ```
 
-  - Les strings faisant plus de 80 caractères devraient être écrites sur plusieurs lignes, en utilisant la concaténation des chaînes de caractères.
-  - Note : Si trop utilisée, la concaténation de strings trop longues peut influencer les performances. [jsPerf](http://jsperf.com/ya-string-concat) & [Discussion](https://github.com/airbnb/javascript/issues/40)
+  - Les chaînes de caractères faisant plus de 80 caractères devraient être écrites sur plusieurs lignes, en utilisant la concaténation des chaînes de caractères.
+  - Note : Si trop utilisée, la concaténation de chaînes de caractères trop longues peut influencer les performances. [jsPerf](http://jsperf.com/ya-string-concat) & [Discussion](https://github.com/airbnb/javascript/issues/40)
 
     ```javascript
     // pas bien
@@ -215,7 +215,7 @@
       'fast.';
     ```
 
-  - Quand vous contruisez programmatiquement une string, utilisez Array#join à la place de l'opérateur de concaténation. Principalement pour IE : [jsPerf](http://jsperf.com/string-vs-array-concat/2).
+  - Quand vous contruisez programmatiquement une chaîne de caractères, utilisez Array#join à la place de l'opérateur de concaténation. Principalement pour IE : [jsPerf](http://jsperf.com/string-vs-array-concat/2).
 
     ```javascript
     var objets,
@@ -283,7 +283,7 @@
     })();
     ```
 
-  - Ne déclarez jamais une fonction dans un bloc non-foncition (if, while, etc). Assignez plutôt la fonction à une variable. Les navigateurs vous permettront de le faire, mais ils l'interprèteront tous différemment, et là c'est la caca, c'est la cata, c'est la catastrophe.
+  - Ne déclarez jamais une fonction dans un bloc non-fonction (if, while, etc). Assignez plutôt la fonction à une variable. Les navigateurs vous permettront de le faire, mais ils l'interprèteront tous différemment, et là c'est la caca, c'est la cata, c'est la catastrophe.
   - **Note :** ECMA-262 définit un `bloc` comme une série d'instructions. La déclaration d'une fonction n'est pas une instruction. [Lisez la note d'ECMA-262 sur ce problème](http://www.ecma-international.org/publications/files/ECMA-ST/Ecma-262.pdf#page=97).
 
     ```javascript
@@ -358,7 +358,7 @@
 
 ## <a name='variables'>Variables</a>
 
-  - Utilisez toujours `var` pour déclarer des variables. Ne par le faire entaîne dans la création de variables globales. Nous préfèrons éviter de poluer l'espace de noms global. Capitaine Planète nous a prévenu de ces dangers.
+  - Utilisez toujours `var` pour déclarer des variables. Ne pas le faire entraîne la création de variables globales. Nous préfèrons éviter de poluer l'espace de noms global. Capitaine Planète nous a prévenu de ces dangers.
 
     ```javascript
     // pas bien
@@ -368,7 +368,7 @@
     var superPower = new SuperPower();
     ```
 
-  - N'utiliez qu'une seule déclaration `var` pour de multiples variables et déclarez chacune d'entre elles sur une nouvelle ligne.
+  - N'utilisez qu'une seule déclaration `var` pour de multiples variables et déclarez chacune d'entre elles sur une nouvelle ligne.
 
     ```javascript
     // pas bien
@@ -558,14 +558,14 @@
 ## <a name='conditionals'>Expressions conditionnelles & Égalité</a>
 
   - Préférez `===` et `!==` à `==` et `!=`.
-  - Les expressions condtionnelles sont évaluées en utilisant les contrainte imposées par la méthode `ToBoolean` et suivent toujours ces simples rêgles :
+  - Les expressions condtionnelles sont évaluées en utilisant les contraintes imposées par la méthode `ToBoolean` et suivent toujours ces simples rêgles :
 
     + Les **Objets** valent **true**
     + **Undefined** vaut **false**
     + **Null** vaut **false**
     + Les **Booleéns** valent **la valeur du booléen**
     + Les **Nombres** valent **false** si **+0, -0, ou NaN**, sinon **true**
-    + Les **Strings** valent **false** si la string est vide `''`, sinon **true**
+    + Les **Chaînes de caractères** valent **false** si la chaîne est vide `''`, sinon **true**
 
     ```javascript
     if ([0]) {
@@ -696,9 +696,9 @@
     }
     ```
 
-  - Préfixer vos commentaire avec `FIXME` ou `TODO` (et pas `ACORRIGER` ou `AFAIRE`, par pitié...) aide d'autres développeurs à comprendre rapidement si vous indiquez un problème qui doit être retravaillé, ou permet de suggérer une solution au problème qui devra être implémentée. Ceux-ci sont différents des commentaires classiques car ils peuvent entraîner une action. Ces actions sont `FIXME -- need to figure this out` ou `TODO -- need to implement`.
+  - Préfixer vos commentaires avec `FIXME` ou `TODO` (et pas `ACORRIGER` ou `AFAIRE`, par pitié...) aide d'autres développeurs à comprendre rapidement si vous indiquez un problème qui doit être retravaillé, ou permet de suggérer une solution au problème qui devra être implémentée. Ceux-ci sont différents des commentaires classiques car ils peuvent entraîner une action. Ces actions sont `FIXME -- need to figure this out` ou `TODO -- need to implement`.
 
-  - Utilisez `// FIXME:` pour annoter des problèmes
+  - Utilisez `// FIXME:` pour annoter des problèmes.
 
     ```javascript
     function Calculator() {
@@ -710,7 +710,7 @@
     }
     ```
 
-  - Utilisez `// TODO:` pour annoter des solutions aux problèmes
+  - Utilisez `// TODO:` pour annoter des solutions aux problèmes.
 
     ```javascript
     function Calculator() {
@@ -727,7 +727,7 @@
 
 ## <a name='whitespace'>Espaces</a>
 
-  - Utilisez deux espaces pour des tabulations "douces"
+  - Utilisez deux espaces pour des tabulations "douces".
 
     ```javascript
     // pas bien
@@ -852,7 +852,7 @@
     };
     ```
 
-  - Virgule finale supplémentaire : **Nope.** Cela peut poser des problèmes avec IE6/7 et IE9 en mode Quirks. De plus, certaines implémentations de ES3 aujoutaient sa longueur à un tableu s'il avait une virgule finale supplémentaire. Cela fut clarifié dans ES5 ([source](http://es5.github.io/#D)):
+  - Virgule finale supplémentaire : **Nope.** Cela peut poser des problèmes avec IE6/7 et IE9 en mode Quirks. De plus, certaines implémentations de ES3 ajoutaient sa longueur à un tableau s'il avait une virgule finale supplémentaire. Cela fut clarifié dans ES5 ([source](http://es5.github.io/#D)):
 
   > Edition 5 clarifies the fact that a trailing comma at the end of an ArrayInitialiser does not add to the length of the array. This is not a semantic change from Edition 3 but some implementations may have previously misinterpreted this.
 
@@ -912,8 +912,8 @@
 
 ## <a name='type-coercion'>Conversion de types & Contraintes</a>
 
-  - Faîtes vos contraintes de type au début de l'instruction.
-  - Strings:
+  - Faites vos contraintes de type au début de l'instruction.
+  - Chaines de caractères:
 
     ```javascript
     //  => this.reviewScore = 9;
@@ -955,15 +955,15 @@
     var val = parseInt(inputValue, 10);
     ```
 
-  - Si pour quelque raison que ce soit vous faîtes quelque chose de fou-fou, que `parseInt` vous ralentit et que vous devez utiliser le décallage de bits pour des [raisons de performances](http://jsperf.com/coercion-vs-casting/3), ajoutez un commentaire expliquant ce et pourquoi que vous le faîtes.
+  - Si pour quelque raison que ce soit vous faites quelque chose de fou-fou, que `parseInt` vous ralentit et que vous devez utiliser le décallage de bits pour des [raisons de performances](http://jsperf.com/coercion-vs-casting/3), ajoutez un commentaire expliquant ce et pourquoi que vous le faites.
   - **Note :**  Soyez prudent lorsque vous utilisez les opérations de décallage de bits. Les Nombres sont représentés comme des [valeurs sur 64 bits](http://es5.github.io/#x4.3.19), mais les opérations de décallage de bits renvoient toujours des entiers sur 32 bits ([source](http://es5.github.io/#x11.7)). Les décallages de bits peuvent entraîner des comportements innatendus pour des valeurs entières stockées sur plus de 32 bits. [Discussion](https://github.com/airbnb/javascript/issues/109)
 
     ```javascript
     // bien
     /**
-     * parseInt était la rasion pour laquelle mon code était lent.
-     * Faire un décallage de bits sur la string pour la contraindre
-     * à un Number l'a rendu beaucoup plus rapide.
+     * parseInt était la raison pour laquelle mon code était lent.
+     * Faire un décallage de bits sur la chaîne de caractères pour la contraindre
+     * à un Nombre l'a rendu beaucoup plus rapide.
      */
     var val = inputValue >> 0;
     ```
@@ -1002,7 +1002,7 @@
     }
     ```
 
-  - Utilisez la camelCase lorsque vous nomez vos objets, fonctions et instances
+  - Utilisez la camelCase lorsque vous nommez vos objets, fonctions et instances.
 
     ```javascript
     // pas bien
@@ -1021,7 +1021,7 @@
     });
     ```
 
-  - Utilisez la PascalCase lorsque vous nommez vos constructeurs ou vos classes
+  - Utilisez la PascalCase lorsque vous nommez vos constructeurs ou vos classes.
 
     ```javascript
     // pas bien
@@ -1043,7 +1043,7 @@
     });
     ```
 
-  - Ajoutez un underscore `_` au début du nom de vos propriétés privées
+  - Ajoutez un underscore `_` au début du nom de vos propriétés privées.
 
     ```javascript
     // pas bien
@@ -1101,8 +1101,8 @@
 
 ## <a name='accessors'>Accesseurs</a>
 
-  - Les fonctions d'accesseur pour les propriétés ne sont pas obligatoires
-  - Si vous faîtes des fonctions d'accès, utilisez getVal() et setVal('salut')
+  - Les fonctions d'accesseur pour les propriétés ne sont pas obligatoires.
+  - Si vous faîtes des fonctions d'accès, utilisez getVal() et setVal('salut').
 
     ```javascript
     // pas bien
@@ -1118,7 +1118,7 @@
     dragon.setAge(25);
     ```
 
-  - Si la propriété est un booléen, utilisez isVal() ou hasVal()
+  - Si la propriété est un booléen, utilisez isVal() ou hasVal().
 
     ```javascript
     // pas bien
@@ -1155,7 +1155,7 @@
 
 ## <a name='constructors'>Constructeurs</a>
 
-  - Assignez des méthodes à l'objet prototype, au lieu de l'écraser avec un nouvel objet. L'écraser rend l'héritage impossible : en réininitialisant le protoype, vous effacez le prototype père !
+  - Assignez des méthodes à l'objet prototype, au lieu de l'écraser avec un nouvel objet. L'écraser rend l'héritage impossible : en réininitialisant le protoype, vous effacez le prototype parent !
 
     ```javascript
     function Jedi() {
@@ -1218,7 +1218,7 @@
     ```
 
 
-  - Vous pouvez créer une méthode toString() personalisée, mais soyez sûr qu'elle marche correctement et qu'elle ne cause aucun effet secondaire.
+  - Vous pouvez créer une méthode toString() personalisée, mais assurez-vous qu'elle fonctionne correctement et qu'elle ne cause aucun effet secondaire.
 
     ```javascript
     function Jedi(options) {
@@ -1240,7 +1240,7 @@
 
 ## <a name='events'>Évènements</a>
 
-  - Lorsque vous attachez des données utiles à vos évènements (qu'il s'agisse d'évènements du DOM ou quelque chose de plus propriétaire comme les évènements de Backbone), transmettez plutôt un object "hash" au lieu de données brutes. Cela permet au contributeurs suivants d'ajouter plus de données à l'évènement sans rechercher et modifier tous les gestionnaires de l'évènement. Par exemple :
+  - Lorsque vous attachez des données utiles à vos évènements (qu'il s'agisse d'évènements du DOM ou quelque chose de plus propriétaire comme les évènements de Backbone), transmettez plutôt un objet "hash" au lieu de données brutes. Cela permet au contributeurs suivants d'ajouter plus de données à l'évènement sans rechercher et modifier tous les gestionnaires de l'évènement. Par exemple :
 
     ```js
     // pas bien
@@ -1249,11 +1249,11 @@
     ...
 
     $(this).on('listingUpdated', function(e, listingId) {
-      // do something with listingId
+      // faire quelque chose avec listingId
     });
     ```
 
-    prefer:
+    préférez:
 
     ```js
     // bien
@@ -1262,7 +1262,7 @@
     ...
 
     $(this).on('listingUpdated', function(e, data) {
-      // do something with data.listingId
+      // faire quelque chose avec data.listingId
     });
     ```
 
@@ -1271,9 +1271,9 @@
 
 ## <a name='modules'>Modules</a>
 
-  - Le module devrait commencer avec un `!`. Cela vous assure que, si un module malformé oublie d'ajouter un point virgule final, il n'y aura pas d'erreur en production lorsque les scripts seront concaténnés. [Explication](https://github.com/airbnb/javascript/issues/44#issuecomment-13063933)
+  - Le module devrait commencer avec un `!`. Cela vous assure que, si un module malformé oublie d'ajouter un point virgule final, il n'y aura pas d'erreur en production lorsque les scripts seront concaténés. [Explication](https://github.com/airbnb/javascript/issues/44#issuecomment-13063933)
   - Le fichier devrait être nommé avec la camelCase, se situer dans un dossier avec le même nom, et correspondre au nom du seul élément exporté.
-  - Ajoutez une méthode nommée noConflict() qui restaure le module exporté à sa version précédente et le renvoit.
+  - Ajoutez une méthode nommée noConflict() qui restaure le module exporté à sa version précédente et le renvoie.
   - Déclarez toujours `'use strict';` au début du module.
 
     ```javascript
@@ -1340,7 +1340,7 @@
     ```
 
   - Pour les requêtes du DOM, utilisez le sélecteur en cascades `$('.sidebar ul')` ou le parent > enfant `$('.sidebar > ul')`. [jsPerf](http://jsperf.com/jquery-find-vs-context-sel/16)
-  - Utilisez `find` avec des objets de requêtes jQuery apparetenant à la portée.
+  - Utilisez `find` avec des objets de requêtes jQuery appartenants à la portée.
 
     ```javascript
     // pas bien
@@ -1364,7 +1364,7 @@
 
 ## <a name='es5'>Compatibilité ECMAScript 5</a>
 
-  - Réferrez vous à la [table de compatibilité](http://kangax.github.com/es5-compat-table/) ES5 de [Kangax](https://twitter.com/kangax/)
+  - Réferrez vous à la [table de compatibilité](http://kangax.github.com/es5-compat-table/) ES5 de [Kangax](https://twitter.com/kangax/).
 
   **[[⬆]](#TOC)**
 
@@ -1453,7 +1453,7 @@
 
 ## <a name='in-the-wild'>Dans la Nature</a>
 
-  Ceci est une liste de toutes les organisations qui utilisent ce guilde de style. Envoyez-nous une pull request ou ouvrez une issue (sur le repo original) et nous vous ajouterons à la liste.
+  Ceci est une liste de toutes les organisations qui utilisent ce guide de style. Envoyez-nous une pull request ou ouvrez une issue (sur le repo original) et nous vous ajouterons à la liste.
 
   - **Aan Zee**: [AanZee/javascript](https://github.com/AanZee/javascript)
   - **Airbnb**: [airbnb/javascript](https://github.com/airbnb/javascript)
@@ -1480,18 +1480,24 @@
 
   Ce guide de style dans sa version originale :
 
-  - :us: **Anglais** : [airbnb/javascript](https://github.com/airbnb/javascript)
+  - ![us](https://raw.githubusercontent.com/gosquared/flags/master/flags/flags/shiny/24/United-States.png) **Anglais** : [airbnb/javascript](https://github.com/airbnb/javascript)
 
   Et dans d'autres langues :
 
-  - :de: **Allemand** : [timofurrer/javascript-style-guide](https://github.com/timofurrer/javascript-style-guide)
-  - :jp: **Japonais** : [mitsuruog/javacript-style-guide](https://github.com/mitsuruog/javacript-style-guide)
-  - :br: **Portugais** : [armoucar/javascript-style-guide](https://github.com/armoucar/javascript-style-guide)
-  - :cn: **Chinois** : [adamlu/javascript-style-guide](https://github.com/adamlu/javascript-style-guide)
-  - :es: **Espagnol** : [paolocarrasco/javascript-style-guide](https://github.com/paolocarrasco/javascript-style-guide)
-  - :kr: **Coréen**: [tipjs/javascript-style-guide](https://github.com/tipjs/javascript-style-guide)
+  - ![de](https://raw.githubusercontent.com/gosquared/flags/master/flags/flags/shiny/24/Germany.png) **German**: [timofurrer/javascript-style-guide](https://github.com/timofurrer/javascript-style-guide)
+  - ![jp](https://raw.githubusercontent.com/gosquared/flags/master/flags/flags/shiny/24/Japan.png) **Japanese**: [mitsuruog/javacript-style-guide](https://github.com/mitsuruog/javacript-style-guide)
+  - ![br](https://raw.githubusercontent.com/gosquared/flags/master/flags/flags/shiny/24/Brazil.png) **Brazilian Portuguese**: [armoucar/javascript-style-guide](https://github.com/armoucar/javascript-style-guide)
+  - ![tw](https://raw.githubusercontent.com/gosquared/flags/master/flags/flags/shiny/24/Taiwan.png) **Chinese(Traditional)**: [jigsawye/javascript](https://github.com/jigsawye/javascript)
+  - ![cn](https://raw.githubusercontent.com/gosquared/flags/master/flags/flags/shiny/24/China.png) **Chinese(Simplified)**: [adamlu/javascript-style-guide](https://github.com/adamlu/javascript-style-guide)
+  - ![es](https://raw.githubusercontent.com/gosquared/flags/master/flags/flags/shiny/24/Spain.png) **Spanish**: [paolocarrasco/javascript-style-guide](https://github.com/paolocarrasco/javascript-style-guide)
+  - ![kr](https://raw.githubusercontent.com/gosquared/flags/master/flags/flags/shiny/24/South-Korea.png) **Korean**: [tipjs/javascript-style-guide](https://github.com/tipjs/javascript-style-guide)
+  - ![ru](https://raw.githubusercontent.com/gosquared/flags/master/flags/flags/shiny/24/Russia.png) **Russian**: [uprock/javascript](https://github.com/uprock/javascript)
+  - ![bg](https://raw.githubusercontent.com/gosquared/flags/master/flags/flags/shiny/24/Bulgaria.png) **Bulgarian**: [borislavvv/javascript](https://github.com/borislavvv/javascript)
+  - ![ca](https://raw.githubusercontent.com/fpmweb/javascript-style-guide/master/img/catala.png) **Catalan**: [fpmweb/javascript-style-guide](https://github.com/fpmweb/javascript-style-guide)
+  - ![pl](https://raw.githubusercontent.com/gosquared/flags/master/flags/flags/shiny/24/Poland.png) **Polish**: [mjurczyk/javascript](https://github.com/mjurczyk/javascript)
 
-## <a name='guide-guide'>Le Guide au Guide de Style Javascript</a>
+
+## <a name='guide-guide'>Le Guide du Guide de Style Javascript</a>
 
   - [Référence](https://github.com/airbnb/javascript/wiki/The-JavaScript-Style-Guide-Guide)
 
