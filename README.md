@@ -8,7 +8,7 @@
   1. [Types](#types)
   1. [Objets](#objects)
   1. [Tableaux](#arrays)
-  1. [Strings](#strings)
+  1. [Chaines de caractères](#strings)
   1. [Fonctions](#functions)
   1. [Propriétés](#properties)
   1. [Variables](#variables)
