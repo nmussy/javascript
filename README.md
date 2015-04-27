@@ -358,7 +358,7 @@
 
 ## <a name='variables'>Variables</a>
 
-  - Utilisez toujours `var` pour déclarer des variables. Ne pas le faire entraîne la création de variables globales. Nous préfèrons éviter de poluer l'espace de noms global. Capitaine Planète nous a prévenu de ces dangers.
+  - Utilisez toujours `var` pour déclarer des variables. Ne pas le faire entraîne la création de variables globales. Nous préfèrons éviter de polluer l'espace de noms global. Capitaine Planète nous a prévenu de ces dangers.
 
     ```javascript
     // pas bien
@@ -382,7 +382,7 @@
         dragonball = 'z';
     ```
 
-  - Déclarez les varibles indéfinies en dernier. Cela s'avère pratique lorsque plus tard vous aurez besoin d'assigner une variable en fonction d'une autre précédemment assignée.
+  - Déclarez les variables indéfinies en dernier. Cela s'avère pratique lorsque plus tard vous aurez besoin d'assigner une variable en fonction d'une autre précédemment assignée.
 
     ```javascript
     // pas bien
@@ -605,7 +605,7 @@
 
 ## <a name='blocks'>Blocs</a>
 
-  - Entourrez d'accollades tous vos blocs contenus sur plusieurs lignes.
+  - Entourez d'accollades tous vos blocs contenus sur plusieurs lignes.
 
     ```javascript
     // pas bien
@@ -1155,7 +1155,7 @@
 
 ## <a name='constructors'>Constructeurs</a>
 
-  - Assignez des méthodes à l'objet prototype, au lieu de l'écraser avec un nouvel objet. L'écraser rend l'héritage impossible : en réininitialisant le protoype, vous effacez le prototype parent !
+  - Assignez des méthodes à l'objet prototype, au lieu de l'écraser avec un nouvel objet. L'écraser rend l'héritage impossible : en réinitialisant le protoype, vous effacez le prototype parent !
 
     ```javascript
     function Jedi() {
