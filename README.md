@@ -1,6 +1,6 @@
 # Airbnb JavaScript Guide de Style() {
 
-*Une approche plus ou moins raisonable à Javascript*
+*Une approche plus ou moins raisonnable à Javascript*
 
 
 ## <a name='TOC'>Table des Matières</a>
