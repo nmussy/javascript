@@ -174,20 +174,20 @@
 
 ## <a name='strings'>Chaînes de caractères</a>
 
-  - Utilisez les apostrophes (single quotes) `''` pour les chaînes de caractères.  eslint: [`quotes`]((http://eslint.org/docs/rules/quotes.html)) jscs: [`validateQuoteMarks`](http://jscs.info/rule/validateQuoteMarks)
+  - Utilisez les apostrophes (single quotes) `''` pour les chaînes de caractères.  eslint: [`quotes`](http://eslint.org/docs/rules/quotes.html) jscs: [`validateQuoteMarks`](http://jscs.info/rule/validateQuoteMarks)
 
     ```javascript
     // pas bien
     const nom = "Bob Parr";
 
     // pas bien - un template littéral devrait contenir des interpolations ou de nouvelles lignes
-    const nom = `Capt. Janeway`;
+    const nom = `Bob Parr`;
 
     // bien
-    const nom = 'Capt. Janeway';
+    const nom = 'Bob Parr';
     ```
 
-  - Les chaînes de caractères qui font plus de 100 caractères ne devrait pas être écrites sur plusieurs lignes en utilisant la concaténation de chaîne de caractères.
+  - Les chaînes de caractères qui font plus de 100 caractères ne devraient pas être écrites sur plusieurs lignes en utilisant la concaténation.
 
   > Pourquoi? Il est difficile de travailler avec des chaînes de caractères brisées et cela rend le code moins recherchable.
 
@@ -207,9 +207,9 @@
     const errorMessage = 'This is a super long error that was thrown because of Batman. When you stop to think about how Batman had anything to do with this, you would get nowhere fast.';
     ```
 
-  - Quand vous contruisez programmatiquement une chaîne de caractères, utilisez les templates de chaînes de caractères à la place de l'opérateur de concaténation. eslint: [`prefer-template`](http://eslint.org/docs/rules/prefer-template.html) [`template-curly-spacing`](http://eslint.org/docs/rules/template-curly-spacing) jscs: [`requireTemplateStrings`](http://jscs.info/rule/requireTemplateStrings).
+  - Quand vous construisez programmatiquement une chaîne de caractères, utilisez les templates de chaînes de caractères à la place de l'opérateur de concaténation. eslint: [`prefer-template`](http://eslint.org/docs/rules/prefer-template.html) [`template-curly-spacing`](http://eslint.org/docs/rules/template-curly-spacing) jscs: [`requireTemplateStrings`](http://jscs.info/rule/requireTemplateStrings).
 
-  > Pourquoi? Les templates de chaînes de caractères vous permettent d'être plus lisible, d'avoir une syntaxe concise avec des nouvelles lignes propres ainsi que l'accès aux fonctions d'interpolation de chaînes.
+  > Pourquoi? L'utilisation d'un template de chaînes de caractères vous permet d'être plus lisible, d'avoir une syntaxe concise avec des nouvelles lignes propres ainsi que l'accès aux fonctions d'interpolation de chaînes.
 
     ```javascript
     // pas bien
@@ -231,6 +231,21 @@
     function sayHi(nom) {
       return `How are you, ${nom}?`;
     }
+    ```
+
+  - n'utilisez jamais `eval()` sur une chaîne de caractères, cela ouvre à trop de vulnérabilités.
+
+  - N'échappez pas inutilement des caractères dans une chaîne de caractères. eslint: `no-useless-escape`
+
+  > Pourquoi? les backslashes rendent la chaîne moins lisible, de plus ils ne devraient être présent que lorsque c'est nécessaire.
+
+    ```javascript
+    // pas bien
+    const foo = '\'this\' \i\s \"quoted\"';
+
+    // bien
+    const foo = '\'this\' is "quoted"';
+    const foo = `my name is '${name}'`;
     ```
 
     **[[⬆]](#TOC)**
