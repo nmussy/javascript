@@ -174,7 +174,7 @@
 
 ## <a name='strings'>Chaînes de caractères</a>
 
-  - Utilisez les apostrophes (single quotes) `''` pour les chaînes de caractères.  eslint: `quotes` jscs: `validateQuoteMarks`
+  - Utilisez les apostrophes (single quotes) `''` pour les chaînes de caractères.  eslint: [`quotes`]((http://eslint.org/docs/rules/quotes.html)) jscs: [`validateQuoteMarks`](http://jscs.info/rule/validateQuoteMarks)
 
     ```javascript
     // pas bien
@@ -207,7 +207,7 @@
     const errorMessage = 'This is a super long error that was thrown because of Batman. When you stop to think about how Batman had anything to do with this, you would get nowhere fast.';
     ```
 
-  - Quand vous contruisez programmatiquement une chaîne de caractères, utilisez les templates de chaînes de caractères à la place de l'opérateur de concaténation. eslint: `prefer-template` `template-curly-spacing` jscs: `requireTemplateStrings`.
+  - Quand vous contruisez programmatiquement une chaîne de caractères, utilisez les templates de chaînes de caractères à la place de l'opérateur de concaténation. eslint: [`prefer-template`](http://eslint.org/docs/rules/prefer-template.html) [`template-curly-spacing`](http://eslint.org/docs/rules/template-curly-spacing) jscs: [`requireTemplateStrings`](http://jscs.info/rule/requireTemplateStrings).
 
   > Pourquoi? Les templates de chaînes de caractères vous permettent d'être plus lisible, d'avoir une syntaxe concise avec des nouvelles lignes propres ainsi que l'accès aux fonctions d'interpolation de chaînes.
 
