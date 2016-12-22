@@ -235,7 +235,7 @@
 
   - n'utilisez jamais `eval()` sur une chaîne de caractères, cela ouvre à trop de vulnérabilités.
 
-  - N'échappez pas inutilement des caractères dans une chaîne de caractères. eslint: `no-useless-escape`
+  - N'échappez pas inutilement des caractères dans une chaîne de caractères. eslint: [`no-useless-escape`](http://eslint.org/docs/rules/no-useless-escape)
 
   > Pourquoi? les backslashes rendent la chaîne moins lisible, de plus ils ne devraient être présent que lorsque c'est nécessaire.
 
