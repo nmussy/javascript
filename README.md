@@ -594,7 +594,7 @@
 
 ## <a name='blocks'>Blocs</a>
 
-  - Entourez d'accollades tous vos blocs contenus sur plusieurs lignes.
+  - Entourez d'accolades tous vos blocs contenus sur plusieurs lignes.
 
     ```javascript
     // pas bien
@@ -944,14 +944,14 @@
     var val = parseInt(inputValue, 10);
     ```
 
-  - Si pour quelque raison que ce soit vous faites quelque chose de fou-fou, que `parseInt` vous ralentit et que vous devez utiliser le décallage de bits pour des [raisons de performances](http://jsperf.com/coercion-vs-casting/3), ajoutez un commentaire expliquant ce et pourquoi que vous le faites.
-  - **Note :**  Soyez prudent lorsque vous utilisez les opérations de décallage de bits. Les Nombres sont représentés comme des [valeurs sur 64 bits](http://es5.github.io/#x4.3.19), mais les opérations de décallage de bits renvoient toujours des entiers sur 32 bits ([source](http://es5.github.io/#x11.7)). Les décallages de bits peuvent entraîner des comportements innatendus pour des valeurs entières stockées sur plus de 32 bits. [Discussion](https://github.com/airbnb/javascript/issues/109)
+  - Si pour quelque raison que ce soit vous faites quelque chose de fou-fou, que `parseInt` vous ralentit et que vous devez utiliser le décalage de bits pour des [raisons de performances](http://jsperf.com/coercion-vs-casting/3), ajoutez un commentaire expliquant ce et pourquoi que vous le faites.
+  - **Note :**  Soyez prudent lorsque vous utilisez les opérations de décalage de bits. Les Nombres sont représentés comme des [valeurs sur 64 bits](http://es5.github.io/#x4.3.19), mais les opérations de décalage de bits renvoient toujours des entiers sur 32 bits ([source](http://es5.github.io/#x11.7)). Les décalages de bits peuvent entraîner des comportements innatendus pour des valeurs entières stockées sur plus de 32 bits. [Discussion](https://github.com/airbnb/javascript/issues/109)
 
     ```javascript
     // bien
     /**
      * parseInt était la raison pour laquelle mon code était lent.
-     * Faire un décallage de bits sur la chaîne de caractères pour la contraindre
+     * Faire un décalage de bits sur la chaîne de caractères pour la contraindre
      * à un Nombre l'a rendu beaucoup plus rapide.
      */
     var val = inputValue >> 0;
@@ -1091,7 +1091,7 @@
 ## <a name='accessors'>Accesseurs</a>
 
   - Les fonctions d'accesseur pour les propriétés ne sont pas obligatoires.
-  - Si vous faîtes des fonctions d'accès, utilisez getVal() et setVal('salut').
+  - Si vous faites des fonctions d'accès, utilisez getVal() et setVal('salut').
 
     ```javascript
     // pas bien
