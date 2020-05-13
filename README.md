@@ -69,7 +69,7 @@
     console.log(foo[0], bar[0]); // => 9, 9
     ```
 
-    **[[⬆]](#TOC)**
+  **[⬆ Revenir en haut](#TOC)**
 
 ## <a name='objects'>Objets</a>
 
@@ -117,7 +117,7 @@
       type: 'alien'
     };
     ```
-    **[[⬆]](#TOC)**
+  **[⬆ Revenir en haut](#TOC)**
 
 ## <a name='arrays'>Tableaux</a>
 
@@ -169,7 +169,7 @@
     }
     ```
 
-    **[[⬆]](#TOC)**
+  **[⬆ Revenir en haut](#TOC)**
 
 
 ## <a name='strings'>Chaînes de caractères</a>
@@ -248,7 +248,7 @@
     const foo = `my name is '${name}'`;
     ```
 
-    **[[⬆]](#TOC)**
+  **[⬆ Revenir en haut](#TOC)**
 
 
 ## <a name='functions'>Fonctions</a>
@@ -306,7 +306,7 @@
     }
     ```
 
-    **[[⬆]](#TOC)**
+  **[⬆ Revenir en haut](#TOC)**
 
 
 
@@ -342,7 +342,7 @@
     var isJedi = getProp('jedi');
     ```
 
-    **[[⬆]](#TOC)**
+  **[⬆ Revenir en haut](#TOC)**
 
 
 ## <a name='variables'>Variables</a>
@@ -451,7 +451,7 @@
     }
     ```
 
-    **[[⬆]](#TOC)**
+  **[⬆ Revenir en haut](#TOC)**
 
 
 ## <a name='hoisting'>Hissage</a>
@@ -540,7 +540,7 @@
 
   - Pour plus d'informations, référrez-vous à [JavaScript Scoping & Hoisting](http://www.adequatelygood.com/2010/2/JavaScript-Scoping-and-Hoisting) par [Ben Cherry](http://www.adequatelygood.com/)
 
-    **[[⬆]](#TOC)**
+  **[⬆ Revenir en haut](#TOC)**
 
 
 
@@ -589,7 +589,7 @@
 
   - Pour plus d'information, lisez [Truth Equality and JavaScript](http://javascriptweblog.wordpress.com/2011/02/07/truth-equality-and-javascript/#more-2108) par Angus Croll
 
-    **[[⬆]](#TOC)**
+  **[⬆ Revenir en haut](#TOC)**
 
 
 ## <a name='blocks'>Blocs</a>
@@ -618,7 +618,7 @@
     }
     ```
 
-    **[[⬆]](#TOC)**
+  **[⬆ Revenir en haut](#TOC)**
 
 
 ## <a name='comments'>Commentaires</a>
@@ -711,7 +711,7 @@
     }
     ```
 
-    **[[⬆]](#TOC)**
+  **[⬆ Revenir en haut](#TOC)**
 
 
 ## <a name='whitespace'>Espaces</a>
@@ -807,7 +807,7 @@
         .call(tron.led);
     ```
 
-    **[[⬆]](#TOC)**
+  **[⬆ Revenir en haut](#TOC)**
 
 ## <a name='commas'>Virgules</a>
 
@@ -869,7 +869,7 @@
     ];
     ```
 
-    **[[⬆]](#TOC)**
+  **[⬆ Revenir en haut](#TOC)**
 
 
 ## <a name='semicolons'>Point-virgules</a>
@@ -896,7 +896,7 @@
     })();
     ```
 
-    **[[⬆]](#TOC)**
+  **[⬆ Revenir en haut](#TOC)**
 
 
 ## <a name='type-coercion'>Conversion de types & Contraintes</a>
@@ -972,7 +972,7 @@
     var hasAge = !!age;
     ```
 
-    **[[⬆]](#TOC)**
+  **[⬆ Revenir en haut](#TOC)**
 
 
 ## <a name='nantions'>Conventions de nommage</a>
@@ -1085,7 +1085,7 @@
     };
     ```
 
-    **[[⬆]](#TOC)**
+  **[⬆ Revenir en haut](#TOC)**
 
 
 ## <a name='accessors'>Accesseurs</a>
@@ -1139,7 +1139,7 @@
     };
     ```
 
-    **[[⬆]](#TOC)**
+  **[⬆ Revenir en haut](#TOC)**
 
 
 ## <a name='constructors'>Constructeurs</a>
@@ -1224,7 +1224,7 @@
     };
     ```
 
-    **[[⬆]](#TOC)**
+  **[⬆ Revenir en haut](#TOC)**
 
 
 ## <a name='events'>Évènements</a>
@@ -1255,7 +1255,7 @@
     });
     ```
 
-  **[[⬆]](#TOC)**
+  **[⬆ Revenir en haut](#TOC)**
 
 
 ## <a name='modules'>Modules</a>
@@ -1286,7 +1286,7 @@
     }(this);
     ```
 
-    **[[⬆]](#TOC)**
+  **[⬆ Revenir en haut](#TOC)**
 
 
 ## <a name='jquery'>jQuery</a>
@@ -1348,14 +1348,14 @@
     $sidebar.find('ul');
     ```
 
-    **[[⬆]](#TOC)**
+  **[⬆ Revenir en haut](#TOC)**
 
 
 ## <a name='es5'>Compatibilité ECMAScript 5</a>
 
   - Réferrez vous à la [table de compatibilité](http://kangax.github.com/es5-compat-table/) ES5 de [Kangax](https://twitter.com/kangax/).
 
-  **[[⬆]](#TOC)**
+  **[⬆ Revenir en haut](#TOC)**
 
 
 ## <a name='testing'>Test</a>
@@ -1368,7 +1368,7 @@
     }
     ```
 
-    **[[⬆]](#TOC)**
+  **[⬆ Revenir en haut](#TOC)**
 
 
 ## <a name='performance'>Performances</a>
@@ -1382,7 +1382,7 @@
   - [Long String Concatenation](http://jsperf.com/ya-string-concat)
   - Chargement en cours...
 
-  **[[⬆]](#TOC)**
+  **[⬆ Revenir en haut](#TOC)**
 
 
 ## <a name='resources'>Sources</a>
@@ -1438,7 +1438,7 @@
   - [Dustin Diaz](http://dustindiaz.com/)
   - [nettuts](http://net.tutsplus.com/?s=javascript)
 
-  **[[⬆]](#TOC)**
+  **[⬆ Revenir en haut](#TOC)**
 
 ## <a name='in-the-wild'>Dans la Nature</a>
 
@@ -1520,6 +1520,6 @@ CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT,
 TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE
 SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 
-**[[⬆]](#TOC)**
+**[⬆ Revenir en haut](#TOC)**
 
 # };
